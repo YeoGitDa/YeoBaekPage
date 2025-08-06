@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu } from "lucide-react";
+import { Menu, Rocket } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/lab", label: "LAB" },
   { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
 ];
 
 const Navigation = () => {
@@ -44,6 +45,12 @@ const Navigation = () => {
         <div className="hidden md:flex flex-1 items-center justify-start">
           <NavLinks />
         </div>
+        <div className="hidden md:flex items-center justify-end">
+          <Button>
+            <Rocket className="mr-2 h-4 w-4" />
+            Get Started
+          </Button>
+        </div>
         <div className="md:hidden flex flex-1 items-center justify-between">
           <Logo />
           <Sheet>
@@ -69,6 +76,10 @@ const Navigation = () => {
                       {link.label}
                     </Link>
                   ))}
+                   <Button className="mt-4">
+                    <Rocket className="mr-2 h-4 w-4" />
+                    Get Started
+                  </Button>
                 </div>
               </div>
             </SheetContent>

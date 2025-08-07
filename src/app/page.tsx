@@ -1,97 +1,49 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket } from "lucide-react";
 
-const labFeatures = [
-  {
-    icon: TestTube,
-    title: "Lab 1",
-    description: "Advanced diagnostics and sample testing.",
-  },
-  {
-    icon: Dna,
-    title: "Lab 2",
-    description: "Genetic research and DNA sequencing.",
-  },
-  {
-    icon: Microscope,
-    title: "Lab 3",
-    description: "Microscopic analysis and imaging.",
-  },
-  {
-    icon: Beaker,
-    title: "Lab 4",
-    description: "Chemical synthesis and experimentation.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Lab 5",
-    description: "Biochemical assays and analysis.",
-  },
-  {
-    icon: Rocket,
-    title: "Lab 6",
-    description: "Propelling research to new frontiers.",
-  },
+// 랜덤 아이콘 리스트 (예시: 토스의 3D 일러스트를 대체)
+const icons = [
+  { icon: TestTube, style: "top-24 left-32" },
+  { icon: Dna, style: "top-10 right-64" },
+  { icon: Microscope, style: "bottom-32 left-12" },
+  { icon: Beaker, style: "bottom-24 right-24" },
+  { icon: FlaskConical, style: "top-1/2 left-10" },
+  { icon: Rocket, style: "bottom-12 right-44" },
 ];
-
 
 export default function Home() {
   return (
     <>
-      <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center">
-        <div className="absolute top-0 left-0 w-full h-full">
-          <Image
-            src="https://placehold.co/1920x1080.png"
-            alt="Abstract laboratory background"
-            data-ai-hint="laboratory abstract"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute top-0 left-0 w-full h-full bg-black/70" />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
-            Unveiling the Future, One Discovery at a Time.
+      <section className="relative h-[calc(100vh-64px)] min-h-[600px] w-full flex flex-col items-center justify-center bg-gradient-to-b from-[#eaf4fb] to-[#fafdff] overflow-hidden">
+        {/* 배경 3D 아이콘/일러스트 */}
+        {icons.map(({ icon: Icon, style }, i) => (
+          <div
+            key={i}
+            className={`absolute z-0 ${style} opacity-80 drop-shadow-xl`}
+            style={{ filter: "blur(0.5px)" }}
+          >
+            <Icon className="w-20 h-20 text-blue-200" />
+          </div>
+        ))}
+        {/* 중앙 텍스트 */}
+        <div className="relative z-10 flex flex-col items-center">
+          <h1 className="font-headline text-5xl md:text-7xl font-extrabold text-neutral-900 text-center leading-tight mb-6">
+            문헌정보학의 실험실, <br className="hidden md:block" />
+            <span className="text-blue-500">여백</span>
           </h1>
-          <p className="text-lg md:text-xl text-neutral-200 max-w-2xl mx-auto mb-8">
-            At LabLustre, we merge cutting-edge technology with scientific expertise to push the boundaries of innovation. Explore our world.
+          <p className="text-lg md:text-2xl text-neutral-600 font-sans mb-8 text-center max-w-2xl">
+            질문을 탐구하고, 지식의 여백을 채워가는 실험실.<br />
+            정보, 기술, 그리고 혁신이 만나는 곳에서 여러분을 기다립니다.
           </p>
           <div className="flex justify-center gap-4">
-            <Button asChild size="lg" className="font-bold text-base">
-              <Link href="/lab">Explore The Lab</Link>
+            <Button asChild size="lg" className="font-bold text-base rounded-xl shadow-md">
+              <Link href="/lab">실험실 둘러보기</Link>
             </Button>
-            <Button asChild size="lg" variant="secondary" className="font-bold text-base">
-              <Link href="/services">Our Services</Link>
+            <Button asChild size="lg" variant="secondary" className="font-bold text-base rounded-xl shadow-md">
+              <Link href="/services">서비스 안내</Link>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold">Lab Info</h2>
-            <p className="text-lg text-muted-foreground mt-2">Discover our state-of-the-art facilities.</p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {labFeatures.map((feature) => (
-              <Card key={feature.title}>
-                <CardHeader className="items-center text-center">
-                  <div className="p-4 bg-primary/10 rounded-full mb-4">
-                    <feature.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle>{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>

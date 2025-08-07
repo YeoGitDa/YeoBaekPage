@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Menu, Rocket } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
 
@@ -61,6 +61,7 @@ const Navigation = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               <div className="p-4">
                 <Logo />
                 <div className="flex flex-col space-y-4 pt-10">

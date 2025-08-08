@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, PlusCircle } from "lucide-react";
+import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight } from "lucide-react";
 
 const labFeatures = [
   {
@@ -48,16 +48,19 @@ const introCards = [
         image: "https://placehold.co/600x400.png",
         aiHint: "woman running",
         title: "Healthcare for Everyone",
+        description: "We are committed to providing accessible and affordable healthcare solutions for individuals from all walks of life, ensuring a healthier future for everyone."
     },
     {
         image: "https://placehold.co/600x400.png",
         aiHint: "lab research",
         title: "Over 10 Years of Service in Asia",
+        description: "With a decade of dedicated service, we have established ourselves as a trusted partner in the Asian healthcare landscape, delivering excellence and innovation."
     },
     {
         image: "https://placehold.co/600x400.png",
         aiHint: "doctor data",
         title: "Customer-Centric & Friendly",
+        description: "Our approach is built on a foundation of trust and open communication, ensuring a friendly and supportive experience for all our clients."
     }
 ]
 
@@ -98,33 +101,31 @@ export default function Home() {
 
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
-            <div className="md:flex md:items-end md:justify-between mb-12">
-                <div className="max-w-xl">
-                    <h2 className="font-headline text-4xl md:text-5xl font-bold">From Treatment to Prevention, a Healthcare Paradigm Shift</h2>
-                    <p className="text-lg text-muted-foreground mt-4">As a leading DTC genetic testing company, we possess a uniquely diverse range of testing items to provide unbiased, gene-based research and customer service.</p>
-                </div>
-                <Button variant="link" asChild className="text-md mt-4 md:mt-0">
-                    <Link href="#">View More &rarr;</Link>
-                </Button>
+            <div className="text-center mb-12">
+                <h2 className="font-headline text-4xl md:text-5xl font-bold">From Treatment to Prevention, a Healthcare Paradigm Shift</h2>
+                <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">As a leading DTC genetic testing company, we possess a uniquely diverse range of testing items to provide unbiased, gene-based research and customer service.</p>
             </div>
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-12 md:gap-16">
                 {introCards.map((card, index) => (
-                    <div key={index} className="group">
-                        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg mb-4">
+                    <div key={index} className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className={`relative aspect-video w-full overflow-hidden rounded-lg ${index % 2 === 1 ? 'md:order-last' : ''}`}>
                             <Image
                                 src={card.image}
                                 alt={card.title}
                                 data-ai-hint={card.aiHint}
                                 fill
-                                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                className="object-cover"
                             />
-                             <div className="absolute bottom-3 right-3">
-                                <div className="bg-primary/80 text-primary-foreground rounded-full p-2 transition-colors duration-300 group-hover:bg-primary">
-                                    <PlusCircle className="h-5 w-5" />
-                                </div>
-                            </div>
                         </div>
-                        <h3 className="text-lg font-semibold text-center">{card.title}</h3>
+                        <div className="space-y-4">
+                            <h3 className="font-headline text-3xl font-bold">{card.title}</h3>
+                            <p className="text-muted-foreground">{card.description}</p>
+                            <Button asChild variant="link" className="p-0 h-auto">
+                                <Link href="#">
+                                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                        </div>
                     </div>
                 ))}
             </div>

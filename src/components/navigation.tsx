@@ -19,7 +19,7 @@ const navLinks = [
 
 const Navigation = () => {
   const pathname = usePathname();
-  const { toggleSidebar } = useSidebar();
+  const { open, toggleSidebar } = useSidebar();
 
 
   const handleGetStarted = () => {
@@ -53,10 +53,12 @@ const Navigation = () => {
           <NavLinks />
         </div>
         <div className="hidden md:flex items-center justify-end">
-          <Button onClick={handleGetStarted}>
-            <Rocket className="mr-2 h-4 w-4" />
-            Get Started
-          </Button>
+          {!open && (
+            <Button onClick={handleGetStarted}>
+              <Rocket className="mr-2 h-4 w-4" />
+              Get Started
+            </Button>
+          )}
         </div>
         <div className="md:hidden flex flex-1 items-center justify-between">
           <Logo />
@@ -84,10 +86,12 @@ const Navigation = () => {
                       {link.label}
                     </Link>
                   ))}
-                   <Button className="mt-4" onClick={handleGetStarted}>
-                    <Rocket className="mr-2 h-4 w-4" />
-                    Get Started
-                  </Button>
+                   {!open && (
+                    <Button className="mt-4" onClick={handleGetStarted}>
+                      <Rocket className="mr-2 h-4 w-4" />
+                      Get Started
+                    </Button>
+                   )}
                 </div>
               </div>
             </SheetContent>

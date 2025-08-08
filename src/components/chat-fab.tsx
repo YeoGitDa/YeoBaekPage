@@ -5,10 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useSidebar } from "./ui/sidebar";
 
 export default function ChatFAB() {
-  const { toggleSidebar } = useSidebar();
+  const { open, toggleSidebar } = useSidebar();
 
   const handleClick = () => {
     toggleSidebar();
+  }
+
+  if (open) {
+    return null;
   }
 
   return (

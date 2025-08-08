@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight, Activity } from "lucide-react";
+import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight, Activity, CalendarCheck } from "lucide-react";
 
 const labFeatures = [
   {
@@ -64,6 +64,34 @@ const introCards = [
     }
 ]
 
+const timelineEvents = [
+  {
+    title: "Phase 1: Project Kick-off",
+    description: "Official start of the Yeobaek Hub platform initiative.",
+    status: "Completed",
+  },
+  {
+    title: "Phase 2: Core Platform Development",
+    description: "Building the foundational infrastructure and key features.",
+    status: "In Progress",
+  },
+  {
+    title: "Phase 3: Lab Module Integration",
+    description: "Integrating real-time data from all six lab facilities.",
+    status: "Upcoming",
+  },
+  {
+    title: "Phase 4: User Onboarding & Training",
+    description: "Developing materials and conducting training sessions.",
+    status: "Upcoming",
+  },
+  {
+    title: "Phase 5: Official Launch",
+    description: "Public release of the Yeobaek Hub platform.",
+    status: "Upcoming",
+  },
+]
+
 
 export default function Home() {
   return (
@@ -90,7 +118,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center gap-4">
             <Button asChild size="lg" className="font-bold text-base">
-              <Link href="/lab">Explore The Lab</Link>
+              <Link href="/lab/1">Explore The Lab</Link>
             </Button>
             <Button asChild size="lg" variant="secondary" className="font-bold text-base">
               <Link href="/services">Our Services</Link>
@@ -134,26 +162,26 @@ export default function Home() {
 
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-12">
+          <div className="text-center mb-12">
             <h2 className="font-headline text-4xl md:text-5xl font-bold">Project Timeline</h2>
+            <p className="text-lg text-muted-foreground mt-2">Follow our progress as we build the future of research.</p>
           </div>
           <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Activity className="h-5 w-5" />
-                <span>[Update: New & In Progress]</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
-                <li>Onboarding & training material production (New)</li>
-                <li>Brand identity & design guidelines (In Progress)</li>
-                <li>Yeobaek Hub React platform development (In Progress)</li>
-              </ol>
+            <CardContent className="p-6 md:p-8">
+              <div className="relative pl-6">
+                <div className="absolute left-6 top-0 h-full w-px bg-border -translate-x-1/2"></div>
+                {timelineEvents.map((event, index) => (
+                  <div key={index} className="relative pl-8 py-4">
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full ring-4 ring-background"></div>
+                    <p className="font-semibold">{event.title}</p>
+                    <p className="text-sm text-muted-foreground">{event.description}</p>
+                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${event.status === 'Completed' ? 'bg-green-100 text-green-800' : event.status === 'In Progress' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'}`}>
+                      {event.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </CardContent>
-            <CardFooter>
-              <p className="text-xs text-muted-foreground">[Last Update: 2024-07-31 00:30]</p>
-            </CardFooter>
           </Card>
         </div>
       </section>

@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
-import { useChat } from "@/hooks/use-chat";
 import { useSidebar } from "@/components/ui/sidebar";
 
 const navLinks = [
@@ -20,12 +19,10 @@ const navLinks = [
 
 const Navigation = () => {
   const pathname = usePathname();
-  const { setOpen: setChatOpen } = useChat();
   const { toggleSidebar } = useSidebar();
 
 
   const handleGetStarted = () => {
-    setChatOpen(true);
     toggleSidebar();
   }
 

@@ -2,15 +2,12 @@
 
 import { MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useChat } from "@/hooks/use-chat";
 import { useSidebar } from "./ui/sidebar";
 
 export default function ChatFAB() {
-  const { setOpen } = useChat();
   const { toggleSidebar } = useSidebar();
 
   const handleClick = () => {
-    setOpen(true);
     toggleSidebar();
   }
 

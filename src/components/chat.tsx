@@ -1,15 +1,14 @@
 "use client";
 
-import { useChat } from "@/hooks/use-chat";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SendHorizonal, Bot, User, X, CornerDownLeft, Minimize2, MoreHorizontal } from "lucide-react";
-import { Sidebar, SidebarContent, SidebarHeader } from "./ui/sidebar";
+import { Sidebar, SidebarContent, SidebarHeader, useSidebar } from "./ui/sidebar";
 
 export default function Chat() {
-  const { isOpen, setOpen } = useChat();
+  const { open, setOpen } = useSidebar();
 
-  if (!isOpen) {
+  if (!open) {
     return null;
   }
 

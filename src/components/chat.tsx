@@ -16,8 +16,8 @@ export default function Chat() {
   const { isOpen, setOpen } = useChat();
 
   return (
-    <Sheet open={isOpen} onOpenChange={setOpen}>
-      <SheetContent className="flex flex-col w-full sm:max-w-md bg-zinc-900 text-white border-zinc-700 p-0">
+    <Sheet open={isOpen} onOpenChange={setOpen} modal={false}>
+      <SheetContent className="flex flex-col w-full sm:max-w-sm bg-zinc-900 text-white border-zinc-700 p-0">
         <SheetHeader className="p-4 border-b border-zinc-700">
           <div className="flex justify-between items-center">
              <SheetTitle className="text-white">LabLustre Virtual Assistant</SheetTitle>

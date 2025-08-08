@@ -135,24 +135,24 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-12">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold">진행 작업</h2>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold">Project Timeline</h2>
           </div>
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Activity className="h-5 w-5" />
-                <span>[업데이트 안내: 신규 및 현황]</span>
+                <span>[Update: New & In Progress]</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
               <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
-                <li>[25] 온보딩 교육 자료 생산 (신규)</li>
-                <li>[25] 디자인/CI 규정 (진행 중)</li>
-                <li>[25] Yeobaek Hub React 작업 (진행 중)</li>
+                <li>Onboarding & training material production (New)</li>
+                <li>Brand identity & design guidelines (In Progress)</li>
+                <li>Yeobaek Hub React platform development (In Progress)</li>
               </ol>
             </CardContent>
             <CardFooter>
-              <p className="text-xs text-muted-foreground">[최근 업데이트: 25. 07. 31. 0030]</p>
+              <p className="text-xs text-muted-foreground">[Last Update: 2024-07-31 00:30]</p>
             </CardFooter>
           </Card>
         </div>

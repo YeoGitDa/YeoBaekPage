@@ -3,6 +3,7 @@ import './globals.css';
 import { cn } from "@/lib/utils";
 import Navigation from '@/components/navigation';
 import { Toaster } from '@/components/ui/toaster';
+import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'LabLustre',
@@ -26,6 +27,7 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
+        <Footer />
         <Toaster />
       </body>
     </html>

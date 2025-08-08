@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight, Activity, CalendarCheck } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const labFeatures = [
   {
@@ -69,26 +70,43 @@ const timelineEvents = [
     title: "Phase 1: Project Kick-off",
     description: "Official start of the Yeobaek Hub platform initiative.",
     status: "Completed",
+    date: "24.01.15",
   },
   {
     title: "Phase 2: Core Platform Development",
     description: "Building the foundational infrastructure and key features.",
     status: "In Progress",
+    date: "24.03.01",
   },
   {
     title: "Phase 3: Lab Module Integration",
     description: "Integrating real-time data from all six lab facilities.",
     status: "Upcoming",
+    date: "24.05.20",
   },
   {
     title: "Phase 4: User Onboarding & Training",
     description: "Developing materials and conducting training sessions.",
     status: "Upcoming",
+    date: "24.07.10",
   },
   {
     title: "Phase 5: Official Launch",
     description: "Public release of the Yeobaek Hub platform.",
     status: "Upcoming",
+    date: "24.09.01",
+  },
+  {
+    title: "Phase 6: Post-Launch Support",
+    description: "Providing ongoing support and feature updates.",
+    status: "Upcoming",
+    date: "24.10.01",
+  },
+  {
+    title: "Phase 7: Global Expansion",
+    description: "Expanding the platform to international markets.",
+    status: "Upcoming",
+    date: "25.01.01",
   },
 ]
 
@@ -168,19 +186,24 @@ export default function Home() {
           </div>
           <Card>
             <CardContent className="p-6 md:p-8">
-              <div className="relative pl-6">
-                <div className="absolute left-6 top-0 h-full w-px bg-border -translate-x-1/2"></div>
-                {timelineEvents.map((event, index) => (
-                  <div key={index} className="relative pl-8 py-4">
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full ring-4 ring-background"></div>
-                    <p className="font-semibold">{event.title}</p>
-                    <p className="text-sm text-muted-foreground">{event.description}</p>
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${event.status === 'Completed' ? 'bg-green-100 text-green-800' : event.status === 'In Progress' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'}`}>
-                      {event.status}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <ScrollArea className="h-96">
+                <div className="relative pl-6">
+                  <div className="absolute left-6 top-0 h-full w-px bg-border -translate-x-1/2"></div>
+                  {timelineEvents.map((event, index) => (
+                    <div key={index} className="relative pl-8 py-4">
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full ring-4 ring-background"></div>
+                      <p className="font-semibold">{event.title}</p>
+                      <p className="text-sm text-muted-foreground">{event.description}</p>
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${event.status === 'Completed' ? 'bg-green-100 text-green-800' : event.status === 'In Progress' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'}`}>
+                          {event.status}
+                        </span>
+                        <span className="text-xs text-muted-foreground">{event.date}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollArea>
             </CardContent>
           </Card>
         </div>

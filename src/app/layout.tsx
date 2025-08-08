@@ -27,15 +27,17 @@ export default function RootLayout({
       </head>
       <body className={cn("font-body antialiased")}>
         <SidebarProvider>
-          <div className="flex">
-            <SidebarInset className="flex-1 flex flex-col min-h-screen">
-              <Navigation />
-              <main className="flex-grow">
-                {children}
-              </main>
-              <Footer />
-            </SidebarInset>
-            <Chat />
+          <div className="flex flex-col min-h-screen">
+            <Navigation />
+            <div className="flex flex-1">
+              <SidebarInset className="flex-1 flex flex-col">
+                <main className="flex-grow">
+                  {children}
+                </main>
+                <Footer />
+              </SidebarInset>
+              <Chat />
+            </div>
           </div>
           <Toaster />
           <ChatFAB />

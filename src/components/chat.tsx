@@ -13,7 +13,7 @@ export default function Chat() {
   }
 
   return (
-    <Sidebar side="right" variant="sidebar" collapsible="offcanvas" className="w-[400px]">
+    <Sidebar side="right" variant="sidebar" collapsible="offcanvas" className="w-[400px] h-auto">
       <div className="flex flex-col bg-zinc-900 text-white h-full">
         <SidebarHeader className="p-4 border-b border-zinc-700">
           <div className="flex justify-between items-center">

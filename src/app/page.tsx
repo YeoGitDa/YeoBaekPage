@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight, Activity } from "lucide-react";
 
 const labFeatures = [
   {
@@ -78,13 +78,13 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-black/70" />
+          <div className="absolute top-0 left-0 w-full h-full bg-white/70" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
+          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-black mb-4 leading-tight">
             YeoBaek Hub <br />
           </h1>
-          <p className="text-lg md:text-xl text-neutral-200 max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-neutral-800 max-w-2xl mx-auto mb-8">
             
             Join and Meet a new RIS World ! All of article update is Up-to-date
           </p>
@@ -129,6 +129,32 @@ export default function Home() {
                     </div>
                 ))}
             </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mb-12">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold">진행 작업</h2>
+          </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Activity className="h-5 w-5" />
+                <span>[업데이트 안내: 신규 및 현황]</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
+                <li>[25] 온보딩 교육 자료 생산 (신규)</li>
+                <li>[25] 디자인/CI 규정 (진행 중)</li>
+                <li>[25] Yeobaek Hub React 작업 (진행 중)</li>
+              </ol>
+            </CardContent>
+            <CardFooter>
+              <p className="text-xs text-muted-foreground">[최근 업데이트: 25. 07. 31. 0030]</p>
+            </CardFooter>
+          </Card>
         </div>
       </section>
 

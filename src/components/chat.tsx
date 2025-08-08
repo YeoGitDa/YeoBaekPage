@@ -1,26 +1,24 @@
 "use client";
 
 import { useChat } from "@/hooks/use-chat";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-} from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SendHorizonal, Bot, User, X, CornerDownLeft, Minimize2, MoreHorizontal } from "lucide-react";
+import { Sidebar, SidebarContent, SidebarHeader } from "./ui/sidebar";
 
 export default function Chat() {
   const { isOpen, setOpen } = useChat();
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
-    <Sheet open={isOpen} onOpenChange={setOpen} modal={false}>
-      <SheetContent className="flex flex-col w-full sm:max-w-sm bg-zinc-900 text-white border-zinc-700 p-0">
-        <SheetHeader className="p-4 border-b border-zinc-700">
+    <Sidebar side="right" variant="inset" collapsible="icon" className="w-[400px]">
+      <div className="flex flex-col bg-zinc-900 text-white h-full">
+        <SidebarHeader className="p-4 border-b border-zinc-700">
           <div className="flex justify-between items-center">
-             <SheetTitle className="text-white">LabLustre Virtual Assistant</SheetTitle>
+             <h2 className="text-white text-lg font-semibold">LabLustre Virtual Assistant</h2>
              <div className="flex items-center space-x-2">
                 <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8">
                     <MoreHorizontal className="h-5 w-5" />
@@ -36,8 +34,8 @@ export default function Chat() {
                 </Button>
              </div>
           </div>
-        </SheetHeader>
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        </SidebarHeader>
+        <SidebarContent className="flex-1 overflow-y-auto p-6 space-y-6">
           <div className="text-center text-xs text-zinc-500">Today</div>
           <div className="flex items-start gap-3">
             <div className="bg-primary/20 p-2 rounded-full">
@@ -49,7 +47,7 @@ export default function Chat() {
               </p>
             </div>
           </div>
-        </div>
+        </SidebarContent>
         <div className="p-4 bg-zinc-900 border-t border-zinc-700">
           <form className="flex items-center gap-2">
             <Input
@@ -66,7 +64,7 @@ export default function Chat() {
             AI-generated responses may be inaccurate. Please verify important information.
           </p>
         </div>
-      </SheetContent>
-    </Sheet>
+      </div>
+    </Sidebar>
   );
 }

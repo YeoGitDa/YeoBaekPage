@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
 import { useChat } from "@/hooks/use-chat";
+import { useSidebar } from "@/components/ui/sidebar";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -19,7 +20,14 @@ const navLinks = [
 
 const Navigation = () => {
   const pathname = usePathname();
-  const { setOpen } = useChat();
+  const { setOpen: setChatOpen } = useChat();
+  const { toggleSidebar } = useSidebar();
+
+
+  const handleGetStarted = () => {
+    setChatOpen(true);
+    toggleSidebar();
+  }
 
   const NavLinks = ({ className }: { className?: string }) => (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
@@ -48,7 +56,7 @@ const Navigation = () => {
           <NavLinks />
         </div>
         <div className="hidden md:flex items-center justify-end">
-          <Button onClick={() => setOpen(true)}>
+          <Button onClick={handleGetStarted}>
             <Rocket className="mr-2 h-4 w-4" />
             Get Started
           </Button>
@@ -79,7 +87,7 @@ const Navigation = () => {
                       {link.label}
                     </Link>
                   ))}
-                   <Button className="mt-4" onClick={() => setOpen(true)}>
+                   <Button className="mt-4" onClick={handleGetStarted}>
                     <Rocket className="mr-2 h-4 w-4" />
                     Get Started
                   </Button>

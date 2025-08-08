@@ -30,7 +30,7 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <Navigation />
             <div className="flex flex-1">
-              <SidebarInset className="flex-1 flex flex-col">
+              <SidebarInset>
                 <main className="flex-grow">
                   {children}
                 </main>

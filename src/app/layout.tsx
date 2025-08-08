@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Footer from '@/components/footer';
 import Chat from '@/components/chat';
 import ChatFAB from '@/components/chat-fab';
-import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+import { ChatProvider } from '@/context/chat-context';
 
 export const metadata: Metadata = {
   title: 'LabLustre',
@@ -26,20 +26,18 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
       </head>
       <body className={cn("font-body antialiased")}>
-        <SidebarProvider>
-            <SidebarInset>
-              <div className="flex flex-col min-h-screen">
-                <Navigation />
-                <main className="flex-grow">
-                  {children}
-                </main>
-                <Footer />
-              </div>
-            </SidebarInset>
-            <Chat />
+        <ChatProvider>
+          <div className="flex flex-col min-h-screen">
+            <Navigation />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+          <Chat />
           <Toaster />
           <ChatFAB />
-        </SidebarProvider>
+        </ChatProvider>
       </body>
     </html>
   );

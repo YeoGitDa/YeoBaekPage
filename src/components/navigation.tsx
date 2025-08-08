@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
-import { useSidebar } from "@/components/ui/sidebar";
+import { useChat } from "@/hooks/use-chat";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -19,11 +19,11 @@ const navLinks = [
 
 const Navigation = () => {
   const pathname = usePathname();
-  const { open, toggleSidebar } = useSidebar();
+  const { isOpen, setOpen } = useChat();
 
 
   const handleGetStarted = () => {
-    toggleSidebar();
+    setOpen(true);
   }
 
   const NavLinks = ({ className }: { className?: string }) => (
@@ -53,12 +53,10 @@ const Navigation = () => {
           <NavLinks />
         </div>
         <div className="hidden md:flex items-center justify-end">
-          {!open && (
-            <Button onClick={handleGetStarted}>
-              <Rocket className="mr-2 h-4 w-4" />
-              Get Started
-            </Button>
-          )}
+          <Button onClick={handleGetStarted}>
+            <Rocket className="mr-2 h-4 w-4" />
+            Get Started
+          </Button>
         </div>
         <div className="md:hidden flex flex-1 items-center justify-between">
           <Logo />
@@ -86,12 +84,10 @@ const Navigation = () => {
                       {link.label}
                     </Link>
                   ))}
-                   {!open && (
-                    <Button className="mt-4" onClick={handleGetStarted}>
-                      <Rocket className="mr-2 h-4 w-4" />
-                      Get Started
-                    </Button>
-                   )}
+                  <Button className="mt-4" onClick={handleGetStarted}>
+                    <Rocket className="mr-2 h-4 w-4" />
+                    Get Started
+                  </Button>
                 </div>
               </div>
             </SheetContent>

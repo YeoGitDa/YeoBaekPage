@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket } from "lucide-react";
+import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, PlusCircle } from "lucide-react";
 
 const labFeatures = [
   {
@@ -43,6 +43,24 @@ const labFeatures = [
   },
 ];
 
+const introCards = [
+    {
+        image: "https://placehold.co/600x400.png",
+        aiHint: "woman running",
+        title: "Healthcare for Everyone",
+    },
+    {
+        image: "https://placehold.co/600x400.png",
+        aiHint: "lab research",
+        title: "Over 10 Years of Service in Asia",
+    },
+    {
+        image: "https://placehold.co/600x400.png",
+        aiHint: "doctor data",
+        title: "Customer-Centric & Friendly",
+    }
+]
+
 
 export default function Home() {
   return (
@@ -79,6 +97,41 @@ export default function Home() {
       </section>
 
       <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+            <div className="md:flex md:items-end md:justify-between mb-12">
+                <div className="max-w-xl">
+                    <h2 className="font-headline text-4xl md:text-5xl font-bold">From Treatment to Prevention, a Healthcare Paradigm Shift</h2>
+                    <p className="text-lg text-muted-foreground mt-4">As a leading DTC genetic testing company, we possess a uniquely diverse range of testing items to provide unbiased, gene-based research and customer service.</p>
+                </div>
+                <Button variant="link" asChild className="text-md mt-4 md:mt-0">
+                    <Link href="#">View More &rarr;</Link>
+                </Button>
+            </div>
+            <div className="grid gap-8 md:grid-cols-3">
+                {introCards.map((card, index) => (
+                    <div key={index} className="group">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg mb-4">
+                            <Image
+                                src={card.image}
+                                alt={card.title}
+                                data-ai-hint={card.aiHint}
+                                fill
+                                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                             <div className="absolute bottom-3 right-3">
+                                <div className="bg-primary/80 text-primary-foreground rounded-full p-2 transition-colors duration-300 group-hover:bg-primary">
+                                    <PlusCircle className="h-5 w-5" />
+                                </div>
+                            </div>
+                        </div>
+                        <h3 className="text-lg font-semibold text-center">{card.title}</h3>
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="font-headline text-4xl md:text-5xl font-bold">Lab Info</h2>

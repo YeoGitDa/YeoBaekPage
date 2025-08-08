@@ -29,11 +29,11 @@ const keyMetrics = [
   },
 ];
 
-export default function LabPage() {
+export default function LabPage({ params }: { params: { labId: string } }) {
   return (
     <div className="container mx-auto py-10 px-4 md:px-6">
       <header className="mb-12 text-center">
-        <h1 className="font-headline text-5xl md:text-6xl font-bold">Lab Dashboard</h1>
+        <h1 className="font-headline text-5xl md:text-6xl font-bold">Lab {params.labId} Dashboard</h1>
         <p className="text-lg text-muted-foreground mt-2">Real-time insights from our laboratory operations.</p>
       </header>
       

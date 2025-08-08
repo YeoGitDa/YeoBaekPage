@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
+import { useChat } from "@/hooks/use-chat";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -18,6 +19,7 @@ const navLinks = [
 
 const Navigation = () => {
   const pathname = usePathname();
+  const { setOpen } = useChat();
 
   const NavLinks = ({ className }: { className?: string }) => (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
@@ -27,7 +29,7 @@ const Navigation = () => {
           href={link.href}
           className={cn(
             "text-sm font-medium transition-colors hover:text-primary",
-            pathname === link.href ? "text-primary" : "text-foreground/80"
+            pathname.startsWith(link.href) && link.href !== "/" || pathname === link.href ? "text-primary" : "text-foreground/80"
           )}
         >
           {link.label}
@@ -37,7 +39,7 @@ const Navigation = () => {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center px-4 md:px-6">
         <div className="mr-8 hidden md:flex">
           <Logo />
@@ -46,7 +48,7 @@ const Navigation = () => {
           <NavLinks />
         </div>
         <div className="hidden md:flex items-center justify-end">
-          <Button>
+          <Button onClick={() => setOpen(true)}>
             <Rocket className="mr-2 h-4 w-4" />
             Get Started
           </Button>
@@ -71,13 +73,13 @@ const Navigation = () => {
                       href={link.href}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-primary",
-                        pathname === link.href ? "text-primary" : "text-foreground"
+                        pathname.startsWith(link.href) && link.href !== "/" || pathname === link.href ? "text-primary" : "text-foreground"
                       )}
                     >
                       {link.label}
                     </Link>
                   ))}
-                   <Button className="mt-4">
+                   <Button className="mt-4" onClick={() => setOpen(true)}>
                     <Rocket className="mr-2 h-4 w-4" />
                     Get Started
                   </Button>

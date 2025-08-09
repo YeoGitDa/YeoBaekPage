@@ -34,7 +34,7 @@ const Navigation = () => {
           href={link.href}
           className={cn(
             "text-sm font-medium transition-colors hover:text-primary",
-            pathname.startsWith(link.href) && link.href !== "/" || pathname === link.href ? "text-primary" : "text-foreground/80"
+            (pathname.startsWith(link.href) && link.href !== "/") || pathname === link.href ? "text-primary" : "text-foreground/80"
           )}
         >
           {link.label}
@@ -78,7 +78,7 @@ const Navigation = () => {
                       href={link.href}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-primary",
-                        pathname.startsWith(link.href) && link.href !== "/" || pathname === link.href ? "text-primary" : "text-foreground"
+                        (pathname.startsWith(link.href) && link.href !== "/") || pathname === link.href ? "text-primary" : "text-foreground"
                       )}
                     >
                       {link.label}

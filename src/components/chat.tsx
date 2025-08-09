@@ -2,12 +2,64 @@
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { SendHorizonal, Bot, User, X, CornerDownLeft, Minimize2, MoreHorizontal } from "lucide-react";
+import { SendHorizonal, Bot, User, X, CornerDownLeft, Minimize2, MoreHorizontal, GripVertical } from "lucide-react";
 import { useChat } from "@/hooks/use-chat";
 import { cn } from "@/lib/utils";
+import React, { useState, useRef, useEffect } from "react";
 
 export default function Chat() {
   const { isOpen, setOpen } = useChat();
+  const chatRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const dragStart = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    if (isOpen) {
+      setPosition({
+        x: window.innerWidth - 400 - 24, // right: 6 * 4 = 24px
+        y: window.innerHeight - 600 - 80, // bottom: 20 * 4 = 80px
+      });
+    }
+  }, [isOpen]);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.button !== 0) return;
+    setIsDragging(true);
+    dragStart.current = {
+      x: e.clientX - position.x,
+      y: e.clientY - position.y,
+    };
+    // Prevent text selection while dragging
+    e.preventDefault();
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging) return;
+    setPosition({
+      x: e.clientX - dragStart.current.x,
+      y: e.clientY - dragStart.current.y,
+    });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
+    } else {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging]);
 
   if (!isOpen) {
     return null;
@@ -15,29 +67,31 @@ export default function Chat() {
 
   return (
     <div
-      className={cn(
-        "fixed bottom-20 right-6 h-[600px] w-[380px] bg-background border shadow-2xl rounded-lg z-50 flex flex-col transition-transform duration-300 ease-in-out",
-        isOpen ? "translate-x-0" : "translate-x-full"
-      )}
+      ref={chatRef}
+      className="fixed h-[600px] w-[380px] z-50 flex flex-col transition-transform duration-300 ease-in-out"
+      style={{
+        left: `${position.x}px`,
+        top: `${position.y}px`,
+        cursor: isDragging ? 'grabbing' : 'default',
+      }}
     >
-      <div className="flex flex-col bg-zinc-900 text-white h-full shadow-lg rounded-lg">
-        <div className="p-4 border-b border-zinc-700">
-          <div className="flex justify-between items-center">
+      <div className="flex flex-col bg-zinc-900 text-white h-full shadow-2xl rounded-lg">
+        <div
+          className="p-4 border-b border-zinc-700 flex justify-between items-center"
+          onMouseDown={handleMouseDown}
+          style={{ cursor: 'grab' }}
+        >
+          <div className="flex items-center space-x-2">
+            <GripVertical className="h-5 w-5 text-zinc-500" />
             <h2 className="text-white text-lg font-semibold">LabLustre Virtual Assistant</h2>
-            <div className="flex items-center space-x-2">
-                <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8">
-                    <MoreHorizontal className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8">
-                    <CornerDownLeft className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8">
-                    <Minimize2 className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8" onClick={() => setOpen(false)}>
-                    <X className="h-5 w-5" />
-                </Button>
-            </div>
+          </div>
+          <div className="flex items-center space-x-2">
+              <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8">
+                  <MoreHorizontal className="h-5 w-5" />
+              </Button>
+              <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8" onClick={() => setOpen(false)}>
+                  <X className="h-5 w-5" />
+              </Button>
           </div>
         </div>
         <div className="flex-1 overflow-y-auto p-6 space-y-6">

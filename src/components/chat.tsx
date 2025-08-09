@@ -3,7 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SendHorizonal, Bot, User, X, CornerDownLeft, Minimize2, MoreHorizontal } from "lucide-react";
-import { Sheet, SheetContent, SheetOverlay } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { useChat } from "@/hooks/use-chat";
 
 export default function Chat() {
@@ -11,7 +11,6 @@ export default function Chat() {
 
   return (
     <Sheet open={isOpen} onOpenChange={setOpen} modal={false}>
-      <SheetOverlay className="bg-transparent" />
       <SheetContent className="w-[400px] p-0 border-none">
         <div className="flex flex-col bg-zinc-900 text-white h-full">
           <div className="p-4 border-b border-zinc-700">

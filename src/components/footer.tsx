@@ -33,12 +33,12 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="md:col-span-2">
-                        <h4 className="font-semibold mb-4">Labs</h4>
+                        <h4 className="font-semibold mb-4">LABs</h4>
                         <ul className="space-y-2 text-sm">
-                            <li><Link href="/lab/1" className="text-muted-foreground hover:text-primary">Lab 1</Link></li>
-                            <li><Link href="/lab/2" className="text-muted-foreground hover:text-primary">Lab 2</Link></li>
-                            <li><Link href="/lab/3" className="text-muted-foreground hover:text-primary">Lab 3</Link></li>
-                            <li><Link href="/lab/4" className="text-muted-foreground hover:text-primary">Lab 4</Link></li>
+                            <li><Link href="/lab/1" className="text-muted-foreground hover:text-primary">LAB 1</Link></li>
+                            <li><Link href="/lab/2" className="text-muted-foreground hover:text-primary">LAB 2</Link></li>
+                            <li><Link href="/lab/3" className="text-muted-foreground hover:text-primary">LAB 3</Link></li>
+                            <li><Link href="/lab/4" className="text-muted-foreground hover:text-primary">LAB 4</Link></li>
                         </ul>
                     </div>
                     <div className="md:col-span-2">

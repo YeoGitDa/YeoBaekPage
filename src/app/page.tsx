@@ -8,37 +8,37 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 const labFeatures = [
   {
     icon: TestTube,
-    title: "Lab 1",
+    title: "LAB 1",
     description: "Advanced diagnostics and sample testing.",
     href: "/lab/1",
   },
   {
     icon: Dna,
-    title: "Lab 2",
+    title: "LAB 2",
     description: "Genetic research and DNA sequencing.",
     href: "/lab/2",
   },
   {
     icon: Microscope,
-    title: "Lab 3",
+    title: "LAB 3",
     description: "Microscopic analysis and imaging.",
     href: "/lab/3",
   },
   {
     icon: Beaker,
-    title: "Lab 4",
+    title: "LAB 4",
     description: "Chemical synthesis and experimentation.",
     href: "/lab/4",
   },
   {
     icon: FlaskConical,
-    title: "Lab 5",
+    title: "LAB 5",
     description: "Biochemical assays and analysis.",
     href: "/lab/5",
   },
   {
     icon: Rocket,
-    title: "Lab 6",
+    title: "LAB 6",
     description: "Propelling research to new frontiers.",
     href: "/lab/6",
   },
@@ -212,7 +212,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold">Lab Info</h2>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold">LAB Info</h2>
             <p className="text-lg text-muted-foreground mt-2">Discover our state-of-the-art facilities.</p>
           </div>
 

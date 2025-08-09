@@ -7,7 +7,8 @@ import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const Sheet = SheetPrimitive.Root
+const Sheet = ({ ...props }: SheetPrimitive.DialogProps) => <SheetPrimitive.Root {...props} />
+
 
 const SheetTrigger = SheetPrimitive.Trigger
 
@@ -58,7 +59,6 @@ const SheetContent = React.forwardRef<
   SheetContentProps
 >(({ side = "right", className, children, ...props }, ref) => (
   <SheetPortal>
-    <SheetOverlay />
     <SheetPrimitive.Content
       ref={ref}
       className={cn(sheetVariants({ side }), className)}

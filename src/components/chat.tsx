@@ -9,14 +9,18 @@ import { cn } from "@/lib/utils";
 export default function Chat() {
   const { isOpen, setOpen } = useChat();
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div
       className={cn(
-        "fixed top-0 right-0 h-full w-[400px] bg-background border-l transition-transform duration-300 ease-in-out z-50",
+        "fixed bottom-20 right-6 h-[600px] w-[380px] bg-background border shadow-2xl rounded-lg z-50 flex flex-col transition-transform duration-300 ease-in-out",
         isOpen ? "translate-x-0" : "translate-x-full"
       )}
     >
-      <div className="flex flex-col bg-zinc-900 text-white h-full shadow-lg">
+      <div className="flex flex-col bg-zinc-900 text-white h-full shadow-lg rounded-lg">
         <div className="p-4 border-b border-zinc-700">
           <div className="flex justify-between items-center">
             <h2 className="text-white text-lg font-semibold">LabLustre Virtual Assistant</h2>
@@ -49,7 +53,7 @@ export default function Chat() {
             </div>
           </div>
         </div>
-        <div className="p-4 bg-zinc-900 border-t border-zinc-700">
+        <div className="p-4 bg-zinc-900 border-t border-zinc-700 rounded-b-lg">
           <form className="flex items-center gap-2">
             <Input
               type="text"

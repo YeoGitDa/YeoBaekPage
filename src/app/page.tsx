@@ -49,19 +49,22 @@ const introCards = [
         image: "https://placehold.co/600x400.png",
         aiHint: "woman running",
         title: "Healthcare for Everyone",
-        description: "We are committed to providing accessible and affordable healthcare solutions for individuals from all walks of life, ensuring a healthier future for everyone."
+        description: "We are committed to providing accessible and affordable healthcare solutions for individuals from all walks of life, ensuring a healthier future for everyone.",
+        href: "/lab/1"
     },
     {
         image: "https://placehold.co/600x400.png",
         aiHint: "lab research",
         title: "Over 10 Years of Service in Asia",
-        description: "With a decade of dedicated service, we have established ourselves as a trusted partner in the Asian healthcare landscape, delivering excellence and innovation."
+        description: "With a decade of dedicated service, we have established ourselves as a trusted partner in the Asian healthcare landscape, delivering excellence and innovation.",
+        href: "/lab/2"
     },
     {
         image: "https://placehold.co/600x400.png",
         aiHint: "doctor data",
         title: "Customer-Centric & Friendly",
-        description: "Our approach is built on a foundation of trust and open communication, ensuring a friendly and supportive experience for all our clients."
+        description: "Our approach is built on a foundation of trust and open communication, ensuring a friendly and supportive experience for all our clients.",
+        href: "/lab/3"
     }
 ]
 
@@ -136,7 +139,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center gap-4">
             <Button asChild size="lg" className="font-bold text-base">
-              <Link href="/lab/1">Explore The Lab</Link>
+              <Link href="/lab/1">Explore The LAB</Link>
             </Button>
             <Button asChild size="lg" variant="secondary" className="font-bold text-base">
               <Link href="/services">Our Services</Link>
@@ -167,7 +170,7 @@ export default function Home() {
                             <h3 className="font-headline text-3xl font-bold">{card.title}</h3>
                             <p className="text-muted-foreground">{card.description}</p>
                             <Button asChild variant="link" className="p-0 h-auto">
-                                <Link href="#">
+                                <Link href={card.href}>
                                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>

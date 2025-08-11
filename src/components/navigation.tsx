@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Rocket } from "lucide-react";
+import { Menu, LogIn } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -22,7 +22,8 @@ const Navigation = () => {
   const { isOpen, setOpen } = useChat();
 
 
-  const handleGetStarted = () => {
+  const handleLoginJoin = () => {
+    // For now, this will open the chat. This can be changed later to a login modal.
     setOpen(true);
   }
 
@@ -53,9 +54,9 @@ const Navigation = () => {
           <NavLinks />
         </div>
         <div className="hidden md:flex items-center justify-end">
-          <Button onClick={handleGetStarted}>
-            <Rocket className="mr-2 h-4 w-4" />
-            Get Started
+          <Button onClick={handleLoginJoin}>
+            <LogIn className="mr-2 h-4 w-4" />
+            Login/Join
           </Button>
         </div>
         <div className="md:hidden flex flex-1 items-center justify-between">
@@ -84,9 +85,9 @@ const Navigation = () => {
                       {link.label}
                     </Link>
                   ))}
-                  <Button className="mt-4" onClick={handleGetStarted}>
-                    <Rocket className="mr-2 h-4 w-4" />
-                    Get Started
+                  <Button className="mt-4" onClick={handleLoginJoin}>
+                    <LogIn className="mr-2 h-4 w-4" />
+                    Login/Join
                   </Button>
                 </div>
               </div>

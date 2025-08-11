@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight, Activity, CalendarCheck } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight, Star } from "lucide-react";
 
 const labFeatures = [
   {
@@ -68,53 +67,47 @@ const introCards = [
     }
 ]
 
-const timelineEvents = [
+const recentUpdates = [
   {
-    title: "Phase 1: Project Kick-off",
-    description: "Official start of the Yeobaek Hub platform initiative.",
-    status: "Completed",
-    date: "24.01.15",
+    lab: "LAB 1",
+    update: "New diagnostic protocol for viral loads deployed.",
+    date: new Date(new Date().setDate(new Date().getDate() - 2)),
+    href: "/lab/1",
   },
   {
-    title: "Phase 2: Core Platform Development",
-    description: "Building the foundational infrastructure and key features.",
-    status: "In Progress",
-    date: "24.03.01",
+    lab: "LAB 3",
+    update: "Upgraded imaging software to version 3.1, enhancing resolution by 15%.",
+    date: new Date(new Date().setDate(new Date().getDate() - 5)),
+    href: "/lab/3",
   },
   {
-    title: "Phase 3: Lab Module Integration",
-    description: "Integrating real-time data from all six lab facilities.",
-    status: "Upcoming",
-    date: "24.05.20",
+    lab: "LAB 2",
+    update: "Completed sequencing for the 'Azure' cohort study.",
+    date: new Date(new Date().setDate(new Date().getDate() - 8)),
+    href: "/lab/2",
   },
   {
-    title: "Phase 4: User Onboarding & Training",
-    description: "Developing materials and conducting training sessions.",
-    status: "Upcoming",
-    date: "24.07.10",
+    lab: "LAB 5",
+    update: "Published findings on metabolic pathway P-450 in 'Nature Protocols'.",
+    date: new Date(new Date().setDate(new Date().getDate() - 12)),
+    href: "/lab/5",
   },
   {
-    title: "Phase 5: Official Launch",
-    description: "Public release of the Yeobaek Hub platform.",
-    status: "Upcoming",
-    date: "24.09.01",
-  },
-  {
-    title: "Phase 6: Post-Launch Support",
-    description: "Providing ongoing support and feature updates.",
-    status: "Upcoming",
-    date: "24.10.01",
-  },
-  {
-    title: "Phase 7: Global Expansion",
-    description: "Expanding the platform to international markets.",
-    status: "Upcoming",
-    date: "25.01.01",
-  },
-]
+    lab: "LAB 4",
+    update: "Synthesized three new chemical compounds for testing.",
+    date: new Date(new Date().setDate(new Date().getDate() - 20)),
+    href: "/lab/4",
+  }
+];
 
 
 export default function Home() {
+  const isRecent = (date: Date) => {
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    return date > sevenDaysAgo;
+  };
+
   return (
     <>
       <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center">
@@ -184,29 +177,28 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold">Project Timeline</h2>
-            <p className="text-lg text-muted-foreground mt-2">Follow our progress as we build the future of research.</p>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold">Recent Updates</h2>
+            <p className="text-lg text-muted-foreground mt-2">Latest news and breakthroughs from our labs.</p>
           </div>
           <Card>
-            <CardContent className="p-6 md:p-8">
-              <ScrollArea className="h-96">
-                <div className="relative pl-6">
-                  <div className="absolute left-6 top-0 h-full w-px bg-border -translate-x-1/2"></div>
-                  {timelineEvents.map((event, index) => (
-                    <div key={index} className="relative pl-8 py-4">
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full ring-4 ring-background"></div>
-                      <p className="font-semibold">{event.title}</p>
-                      <p className="text-sm text-muted-foreground">{event.description}</p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${event.status === 'Completed' ? 'bg-green-100 text-green-800' : event.status === 'In Progress' ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'}`}>
-                          {event.status}
-                        </span>
-                        <span className="text-xs text-muted-foreground">{event.date}</span>
+            <CardContent className="p-0">
+              <div className="divide-y divide-border">
+                {recentUpdates.map((item) => (
+                  <Link href={item.href} key={item.lab + item.update} className="block hover:bg-muted/50 transition-colors">
+                    <div className="flex items-center p-4">
+                      <div className="w-8 text-center">
+                        {isRecent(item.date) && <Star className="h-5 w-5 text-yellow-500 fill-yellow-400" />}
                       </div>
+                      <div className="flex-1 ml-4">
+                        <p className="font-semibold text-sm">
+                          <span className="font-bold">{item.lab}:</span> {item.update}
+                        </p>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{item.date.toLocaleDateString()}</p>
                     </div>
-                  ))}
-                </div>
-              </ScrollArea>
+                  </Link>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </div>

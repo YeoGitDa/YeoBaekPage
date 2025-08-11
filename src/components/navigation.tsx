@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
-import { useChat } from "@/hooks/use-chat";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -19,13 +18,6 @@ const navLinks = [
 
 const Navigation = () => {
   const pathname = usePathname();
-  const { isOpen, setOpen } = useChat();
-
-
-  const handleLoginJoin = () => {
-    // For now, this will open the chat. This can be changed later to a login modal.
-    setOpen(true);
-  }
 
   const NavLinks = ({ className }: { className?: string }) => (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
@@ -54,9 +46,11 @@ const Navigation = () => {
           <NavLinks />
         </div>
         <div className="hidden md:flex items-center justify-end">
-          <Button onClick={handleLoginJoin}>
-            <LogIn className="mr-2 h-4 w-4" />
-            Login/Join
+          <Button asChild>
+            <Link href="/login">
+              <LogIn className="mr-2 h-4 w-4" />
+              Login/Join
+            </Link>
           </Button>
         </div>
         <div className="md:hidden flex flex-1 items-center justify-between">
@@ -85,9 +79,11 @@ const Navigation = () => {
                       {link.label}
                     </Link>
                   ))}
-                  <Button className="mt-4" onClick={handleLoginJoin}>
-                    <LogIn className="mr-2 h-4 w-4" />
-                    Login/Join
+                  <Button asChild className="mt-4">
+                    <Link href="/login">
+                      <LogIn className="mr-2 h-4 w-4" />
+                      Login/Join
+                    </Link>
                   </Button>
                 </div>
               </div>

@@ -49,9 +49,11 @@ const Navigation = () => {
         </div>
         <div className="hidden md:flex items-center justify-end">
           {isLoggedIn ? (
-             <Button>
-                <User className="mr-2 h-4 w-4" />
-                MyProfile
+             <Button asChild>
+                <Link href="/my-page">
+                    <User className="mr-2 h-4 w-4" />
+                    My Page
+                </Link>
             </Button>
           ) : (
           <Button asChild>
@@ -89,8 +91,11 @@ const Navigation = () => {
                     </Link>
                   ))}
                    {isLoggedIn ? (
-                     <Button className="mt-4" onClick={() => logout()}>
-                        Logout
+                    <Button asChild className="mt-4">
+                        <Link href="/my-page">
+                            <User className="mr-2 h-4 w-4" />
+                            My Page
+                        </Link>
                     </Button>
                   ) : (
                   <Button asChild className="mt-4">

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "./logo";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Github, Instagram, Send } from "lucide-react";
+import { Send } from "lucide-react";
 
 const Footer = () => {
     return (
@@ -14,23 +14,6 @@ const Footer = () => {
                         <p className="text-sm text-muted-foreground">
                             Pioneering the future of scientific research and discovery.
                         </p>
-                        <div className="flex space-x-2">
-                            <Button asChild variant="ghost" size="icon">
-                                <Link href="#" aria-label="Github">
-                                    <Github className="h-5 w-5" />
-                                </Link>
-                            </Button>
-                            <Button asChild variant="ghost" size="icon">
-                                <Link href="#" aria-label="Instagram">
-                                    <Instagram className="h-5 w-5" />
-                                </Link>
-                            </Button>
-                             <Button asChild variant="ghost" className="px-2">
-                                <Link href="#">
-                                    Velog
-                                </Link>
-                            </Button>
-                        </div>
                     </div>
                     <div className="md:col-span-2">
                         <h4 className="font-semibold mb-4">LABs</h4>

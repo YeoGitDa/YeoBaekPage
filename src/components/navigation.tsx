@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, LogIn } from "lucide-react";
+import { Menu, LogIn, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/use-auth";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -18,6 +19,7 @@ const navLinks = [
 
 const Navigation = () => {
   const pathname = usePathname();
+  const { isLoggedIn, logout } = useAuth();
 
   const NavLinks = ({ className }: { className?: string }) => (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
@@ -46,12 +48,19 @@ const Navigation = () => {
           <NavLinks />
         </div>
         <div className="hidden md:flex items-center justify-end">
+          {isLoggedIn ? (
+             <Button>
+                <User className="mr-2 h-4 w-4" />
+                MyProfile
+            </Button>
+          ) : (
           <Button asChild>
             <Link href="/login">
               <LogIn className="mr-2 h-4 w-4" />
               Login/Join
             </Link>
           </Button>
+          )}
         </div>
         <div className="md:hidden flex flex-1 items-center justify-between">
           <Logo />
@@ -79,12 +88,18 @@ const Navigation = () => {
                       {link.label}
                     </Link>
                   ))}
+                   {isLoggedIn ? (
+                     <Button className="mt-4" onClick={() => logout()}>
+                        Logout
+                    </Button>
+                  ) : (
                   <Button asChild className="mt-4">
                     <Link href="/login">
                       <LogIn className="mr-2 h-4 w-4" />
                       Login/Join
                     </Link>
                   </Button>
+                   )}
                 </div>
               </div>
             </SheetContent>

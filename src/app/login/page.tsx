@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/use-auth";
 
 const formSchema = z.object({
   id: z.string().min(1, "ID is required"),
@@ -33,6 +34,7 @@ const formSchema = z.object({
 export default function LoginPage() {
   const router = useRouter();
   const { toast } = useToast();
+  const { login } = useAuth();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,6 +48,7 @@ export default function LoginPage() {
     // Here you would typically handle the login logic,
     // for now we will just simulate a success and redirect.
     console.log(values);
+    login(); // Set auth state to logged in
     toast({
       title: "Login Successful",
       description: "Welcome back!",

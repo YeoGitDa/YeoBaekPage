@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Briefcase, Calendar, Target, Users, Zap } from "lucide-react";
+import { Briefcase, Calendar, Target, Users, Zap, BrainCircuit, Database, TestTube, Code, Lightbulb, Sparkles } from "lucide-react";
 
 const teamMembers = [
   {
@@ -28,6 +28,24 @@ const teamMembers = [
     avatar: "https://placehold.co/128x128.png",
     aiHint: "man engineer"
   },
+  {
+    name: "Dr. Sofia Rossi",
+    role: "Head of Bioinformatics",
+    avatar: "https://placehold.co/128x128.png",
+    aiHint: "woman data scientist"
+  },
+  {
+    name: "Dr. Ben Carter",
+    role: "Lead Software Architect",
+    avatar: "https://placehold.co/128x128.png",
+    aiHint: "man developer"
+  },
+    {
+    name: "Dr. Chloe Chen",
+    role: "Director of Lab Operations",
+    avatar: "https://placehold.co/128x128.png",
+    aiHint: "woman manager"
+  },
 ];
 
 const historyEvents = [
@@ -37,6 +55,39 @@ const historyEvents = [
     { year: "2018", event: "Expanded our operations to Asia, opening a new hub in Seoul." },
     { year: "2021", event: "Received the 'Innovator of the Year' award for our work in proteomics." },
     { year: "2024", event: "Launched the YeoBaek Hub to foster global research collaboration." },
+];
+
+const researchAreas = [
+    {
+        icon: BrainCircuit,
+        title: "LLM",
+        description: "Exploring large language models to understand and generate human-like text for advanced data analysis.",
+    },
+    {
+        icon: Database,
+        title: "DB",
+        description: "Developing robust database systems for efficient storage and retrieval of vast biological datasets.",
+    },
+    {
+        icon: TestTube,
+        title: "MCP",
+        description: "Investigating complex material and chemical properties for novel diagnostic and therapeutic applications.",
+    },
+    {
+        icon: Code,
+        title: "Programming",
+        description: "Building the software infrastructure that powers our research, from data pipelines to user interfaces.",
+    },
+    {
+        icon: Lightbulb,
+        title: "Idea",
+        description: "Fostering a culture of innovation where new ideas can flourish and transform into impactful projects.",
+    },
+    {
+        icon: Sparkles,
+        title: "Free Topic",
+        description: "Encouraging curiosity-driven research across a wide range of scientific disciplines.",
+    }
 ];
 
 const values = [
@@ -127,7 +178,7 @@ export default function AboutPage() {
             <h2 className="font-headline text-4xl md:text-5xl font-bold">Meet Our Team</h2>
             <p className="text-lg text-muted-foreground mt-2">The brilliant minds behind LabLustre.</p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
             {teamMembers.map((member) => (
               <div key={member.name} className="text-center">
                 <Avatar className="w-32 h-32 mx-auto mb-4 ring-4 ring-primary/20">
@@ -142,29 +193,53 @@ export default function AboutPage() {
         </div>
       </section>
 
-        <section className="py-16 md:py-24 bg-muted/30">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center mb-12">
-                    <h2 className="font-headline text-4xl md:text-5xl font-bold">Our Core Values</h2>
-                    <p className="text-lg text-muted-foreground mt-2">The principles that guide our work.</p>
-                </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                    {values.map((value) => (
-                        <Card key={value.title} className="text-center">
-                            <CardHeader>
-                                <div className="mx-auto bg-primary/10 rounded-full p-4 w-fit mb-4">
-                                    <value.icon className="h-8 w-8 text-primary" />
-                                </div>
-                                <CardTitle>{value.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground">{value.description}</p>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center mb-12">
+                <h2 className="font-headline text-4xl md:text-5xl font-bold">Our Research Areas</h2>
+                <p className="text-lg text-muted-foreground mt-2">Exploring the frontiers of science and technology.</p>
             </div>
-        </section>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {researchAreas.map((area) => (
+                    <Card key={area.title} className="text-center">
+                        <CardHeader>
+                            <div className="mx-auto bg-primary/10 rounded-full p-4 w-fit mb-4">
+                                <area.icon className="h-8 w-8 text-primary" />
+                            </div>
+                            <CardTitle>{area.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">{area.description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center mb-12">
+                <h2 className="font-headline text-4xl md:text-5xl font-bold">Our Core Values</h2>
+                <p className="text-lg text-muted-foreground mt-2">The principles that guide our work.</p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {values.map((value) => (
+                    <Card key={value.title} className="text-center">
+                        <CardHeader>
+                            <div className="mx-auto bg-primary/10 rounded-full p-4 w-fit mb-4">
+                                <value.icon className="h-8 w-8 text-primary" />
+                            </div>
+                            <CardTitle>{value.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">{value.description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </div>
+      </section>
     </div>
   );
 }

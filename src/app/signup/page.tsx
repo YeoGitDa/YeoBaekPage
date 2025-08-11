@@ -17,6 +17,7 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -125,6 +126,9 @@ export default function SignupPage() {
                     <FormControl>
                       <Input placeholder="Enter your desired ID" {...field} />
                     </FormControl>
+                    <FormDescription>
+                      Must be at least 8 characters and contain only English letters and numbers.
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -155,6 +159,9 @@ export default function SignupPage() {
                         {...field}
                       />
                     </FormControl>
+                    <FormDescription>
+                      Must be at least 8 characters and include letters, numbers, and one of *, @, #.
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}

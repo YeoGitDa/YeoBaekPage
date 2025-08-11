@@ -31,10 +31,10 @@ const formSchema = z
     email: z.string().email("Invalid email address"),
     id: z
       .string()
-      .min(4, "ID must be at least 4 characters")
+      .min(8, "ID must be at least 8 characters")
       .regex(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@*#])[A-Za-z\d@*#]{4,}$/,
-        "ID must contain letters, numbers, and at least one of *, @, #"
+        /^[a-zA-Z0-9]+$/,
+        "ID must contain only English letters and numbers"
       ),
     confirmId: z.string(),
     password: z

@@ -252,7 +252,7 @@ img, video {
   --card-foreground: 0 0% 3.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 3.9%;
-  --primary: 163 42% 38%;
+  --primary: 140 50% 45%;
   --primary-foreground: 0 0% 98%;
   --secondary: 0 0% 96.1%;
   --secondary-foreground: 0 0% 9%;
@@ -264,7 +264,7 @@ img, video {
   --destructive-foreground: 0 0% 98%;
   --border: 0 0% 89.8%;
   --input: 0 0% 89.8%;
-  --ring: 163 42% 38%;
+  --ring: 140 50% 45%;
   --radius: .5rem;
   --chart-1: 220 70% 50%;
   --chart-2: 160 60% 45%;
@@ -280,19 +280,19 @@ img, video {
   --card-foreground: 0 0% 98%;
   --popover: 0 0% 10%;
   --popover-foreground: 0 0% 98%;
-  --primary: 163 42% 38%;
+  --primary: 140 50% 45%;
   --primary-foreground: 0 0% 98%;
   --secondary: 0 0% 25%;
   --secondary-foreground: 0 0% 98%;
   --muted: 0 0% 15%;
   --muted-foreground: 0 0% 63.9%;
-  --accent: 166 30% 28%;
+  --accent: 140 30% 28%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
   --border: 0 0% 14.9%;
   --input: 0 0% 14.9%;
-  --ring: 163 42% 38%;
+  --ring: 140 50% 45%;
   --chart-1: 220 70% 50%;
   --chart-2: 160 60% 45%;
   --chart-3: 30 80% 55%;
@@ -522,6 +522,10 @@ body {
   margin-bottom: 3rem;
 }
 
+.mb-2 {
+  margin-bottom: .5rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -572,10 +576,6 @@ body {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-2 {
-  margin-bottom: .5rem;
 }
 
 .block {
@@ -636,6 +636,10 @@ body {
 
 .h-2\.5 {
   height: .625rem;
+}
+
+.h-24 {
+  height: 6rem;
 }
 
 .h-3\.5 {
@@ -706,10 +710,6 @@ body {
   height: 1px;
 }
 
-.h-24 {
-  height: 6rem;
-}
-
 .max-h-96 {
   max-height: 24rem;
 }
@@ -764,6 +764,10 @@ body {
 
 .w-2\.5 {
   width: .625rem;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .w-3\.5 {
@@ -824,10 +828,6 @@ body {
 
 .w-full {
   width: 100%;
-}
-
-.w-24 {
-  width: 6rem;
 }
 
 .min-w-0 {
@@ -2470,16 +2470,16 @@ body {
     order: 9999;
   }
 
+  .md\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
   }
 
   .md\:col-span-3 {
     grid-column: span 3 / span 3;
-  }
-
-  .md\:col-span-1 {
-    grid-column: span 1 / span 1;
   }
 
   .md\:flex {

@@ -26,6 +26,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 const formSchema = z
   .object({
@@ -126,7 +127,7 @@ export default function SignupPage() {
                     <FormControl>
                       <Input placeholder="Enter your desired ID" {...field} />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-primary">
                       Must be at least 8 characters and contain only English letters and numbers.
                     </FormDescription>
                     <FormMessage />
@@ -159,7 +160,7 @@ export default function SignupPage() {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-primary">
                       Must be at least 8 characters and include letters, numbers, and one of *, @, #.
                     </FormDescription>
                     <FormMessage />

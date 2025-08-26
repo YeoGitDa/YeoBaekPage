@@ -120,7 +120,6 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
@@ -149,7 +148,6 @@ export default function Home() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-white/80" />
         </div>
         <div className="relative container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">

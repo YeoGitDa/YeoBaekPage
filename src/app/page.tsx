@@ -114,7 +114,7 @@ export default function Home() {
       <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center">
         <div className="absolute top-0 left-0 w-full h-full">
           <Image
-            src="/1920x1080main.png"
+            src="/1920x1080main_gradient_enhanced.png"
             alt="bg"
             fill
             className="object-cover"

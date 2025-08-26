@@ -1320,6 +1320,10 @@ body {
   background-color: #fffc;
 }
 
+.bg-black\/30 {
+  background-color: #0000004d;
+}
+
 .fill-current {
   fill: currentColor;
 }

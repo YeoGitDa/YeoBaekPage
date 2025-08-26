@@ -120,13 +120,13 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-white/70" />
+          <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-black mb-4 leading-tight">
+          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
             YeoBaek Hub <br />
           </h1>
-          <p className="text-lg md:text-xl text-neutral-800 max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8">
             
             Join and Meet a new RIS World ! All of article update is Up-to-date
           </p>

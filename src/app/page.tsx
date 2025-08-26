@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -140,8 +141,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="relative py-16 md:py-24 bg-background">
+        <div className="absolute inset-0">
+          <Image
+            src="/1920x1080main.png"
+            alt="background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-white/80" />
+        </div>
+        <div className="relative container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
                 <h2 className="font-headline text-4xl md:text-5xl font-bold">From Treatment to Prevention, a Healthcare Paradigm Shift</h2>
                 <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">As a leading DTC genetic testing company, we possess a uniquely diverse range of testing items to provide unbiased, gene-based research and customer service.</p>

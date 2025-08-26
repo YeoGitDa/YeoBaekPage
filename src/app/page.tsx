@@ -113,9 +113,8 @@ export default function Home() {
       <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center">
         <div className="absolute top-0 left-0 w-full h-full">
           <Image
-            src="https://placehold.co/1920x1080.png"
-            alt="Abstract laboratory background"
-            data-ai-hint="laboratory abstract"
+            src="/1920x1080main.png"
+            alt="bg"
             fill
             className="object-cover"
             priority

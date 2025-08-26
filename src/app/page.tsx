@@ -3,25 +3,25 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { TestTube, Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight, Star } from "lucide-react";
+import { Dna, Microscope, Beaker, FlaskConical, Rocket, ArrowRight, Star, TestTube } from "lucide-react";
 
 const labFeatures = [
   {
     icon: TestTube,
     title: "LAB 1",
-    description: "Advanced diagnostics and sample testing.",
+    description: " AI기반 자동화 어시스텀트를 구현하고 챗봇을 통해 자료 검색 기능을 제공하는 LAB입니다.  ",
     href: "/lab/1",
   },
   {
     icon: Dna,
     title: "LAB 2",
-    description: "Genetic research and DNA sequencing.",
+    description: " 동아리 내 문서/기획서 등 학술 자료의 체계적인 저장, 공유하는 기능을 제공하는 LAB 입니다.",
     href: "/lab/2",
   },
   {
     icon: Microscope,
     title: "LAB 3",
-    description: "Microscopic analysis and imaging.",
+    description: "문헌정보학 기반 개인 맞춤형 도서 추천과 동아리 구성원들의 산출물을 큐레이팅 하는 LAB입니다. ",
     href: "/lab/3",
   },
   {
@@ -47,23 +47,23 @@ const labFeatures = [
 const introCards = [
     {
         image: "https://placehold.co/600x400.png",
-        aiHint: "woman running",
-        title: "Healthcare for Everyone",
-        description: "We are committed to providing accessible and affordable healthcare solutions for individuals from all walks of life, ensuring a healthier future for everyone.",
+        aiHint: "Automation",
+        title: "LAB1 : Autonation Lab",
+        description: " LLM기반 자동화 어시스턴트를 통한 챗봇 서비스. 리서치와 문서작업을 자동으로! ",
         href: "/lab/1"
     },
     {
         image: "https://placehold.co/600x400.png",
-        aiHint: "lab research",
-        title: "Over 10 Years of Service in Asia",
-        description: "With a decade of dedicated service, we have established ourselves as a trusted partner in the Asian healthcare landscape, delivering excellence and innovation.",
+        aiHint: "Archive",
+        title: "LAB2 : Archive Lab",
+        description: "yeobaek의 활동 산출물과 다양한 문서들을 체계적으로 아카이빙하고, 검색 및 협업을 위한 Lab!",
         href: "/lab/2"
     },
     {
         image: "https://placehold.co/600x400.png",
-        aiHint: "doctor data",
-        title: "Customer-Centric & Friendly",
-        description: "Our approach is built on a foundation of trust and open communication, ensuring a friendly and supportive experience for all our clients.",
+        aiHint: "Curation",
+        title: "LAB3 : AICuration Lab",
+        description: "개인 맞춤형 정보자료 추천 및 yeobaek 의 산출물 전시 기능!",
         href: "/lab/3"
     }
 ]
@@ -123,18 +123,18 @@ export default function Home() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
-            YeoBaek Hub <br />
+            YeoBaek Web <br />
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8">
             
-            Join and Meet a new RIS World ! All of article update is Up-to-date
+            AI기반 서비스 구축으로 학과 내 모든 정보를 한 번에 ! 정보 공유부터 활용까지!
           </p>
           <div className="flex justify-center gap-4">
             <Button asChild size="lg" className="font-bold text-base">
-              <Link href="/lab/1">Explore The LAB</Link>
+              <Link href="/lab/1"> LAB 구경하기 </Link>
             </Button>
             <Button asChild size="lg" variant="secondary" className="font-bold text-base">
-              <Link href="/services">Our Services</Link>
+              <Link href="/services"> 서비스 구경하기 </Link>
             </Button>
           </div>
         </div>
@@ -143,8 +143,8 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
-                <h2 className="font-headline text-4xl md:text-5xl font-bold">From Treatment to Prevention, a Healthcare Paradigm Shift</h2>
-                <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">As a leading DTC genetic testing company, we possess a uniquely diverse range of testing items to provide unbiased, gene-based research and customer service.</p>
+                <h2 className="font-headline text-4xl md:text-5xl font-bold"> 문헌정보학과를 위한 지속 가능한 시스템 구현 </h2>
+                <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto"> 문헌정보학과의 커뮤니티를 구축하며 Yeobaek의 활동 산출물과 Lab 실험 산출물을 아카이빙하는 웹 서비스 입니다. </p>
             </div>
             <div className="grid gap-12 md:gap-16">
                 {introCards.map((card, index) => (
@@ -176,8 +176,8 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold">Recent Updates</h2>
-            <p className="text-lg text-muted-foreground mt-2">Latest news and breakthroughs from our labs.</p>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold"> 최근 업데이트 </h2>
+            <p className="text-lg text-muted-foreground mt-2">최근 일주일 내의 변경사항에대한 정보 </p>
           </div>
           <Card>
             <CardContent className="p-0">
@@ -207,7 +207,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="font-headline text-4xl md:text-5xl font-bold">LAB Info</h2>
-            <p className="text-lg text-muted-foreground mt-2">Discover our state-of-the-art facilities.</p>
+            <p className="text-lg text-muted-foreground mt-2"> yeobaek 의 LAB에 대한 정보 </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

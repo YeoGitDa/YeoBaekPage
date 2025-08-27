@@ -155,36 +155,6 @@ export default function Lab3DashboardPage({ params }: { params: { labId: string 
           </Carousel>
         </div>
       </section>
-
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold"> 최근 업데이트 </h2>
-            <p className="text-lg text-muted-foreground mt-2">최근 일주일 내의 변경사항에대한 정보 </p>
-          </div>
-          <Card>
-            <CardContent className="p-0">
-              <div className="divide-y divide-border">
-                {recentUpdates.map((item) => (
-                  <Link href={item.href} key={item.lab + item.update} className="block hover:bg-muted/50 transition-colors">
-                    <div className="flex items-center p-4">
-                      <div className="w-8 text-center">
-                        {isRecent(item.date) && <Star className="h-5 w-5 text-yellow-500 fill-yellow-400" />}
-                      </div>
-                      <div className="flex-1 ml-4">
-                        <p className="font-semibold text-sm">
-                          <span className="font-bold">{item.lab}:</span> {item.update}
-                        </p>
-                      </div>
-                      <p className="text-xs text-muted-foreground">{item.date.toLocaleDateString()}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
     </div>
   );
 }

@@ -1,100 +1,190 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { LabChart } from "@/components/lab-chart";
-import { Activity, Beaker, Dna, FlaskConical } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Star, Plus } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
-const keyMetrics = [
+const recommendedBooks = [
   {
-    title: "Active Experiments",
-    value: "12",
-    icon: FlaskConical,
-    description: "+3 since last week",
+    title: "단 한 사람",
+    author: "최진영",
+    genre: "장편소설",
+    image: "https://picsum.photos/300/400",
+    aiHint: "tree snow",
+    href: "/lab/1",
   },
   {
-    title: "Data Points Analyzed",
-    value: "1.2M",
-    icon: Dna,
-    description: "Across all projects",
+    title: "어떤 비밀",
+    author: "최진영",
+    genre: "산문",
+    image: "https://picsum.photos/300/400",
+    aiHint: "washing hands",
+    href: "/lab/2",
   },
   {
-    title: "Success Rate",
-    value: "92.8%",
-    icon: Beaker,
-    description: "Average success rate",
+    title: "해가 지는 곳으로",
+    author: "최진영",
+    genre: "장편소설",
+    image: "https://picsum.photos/300/400",
+    aiHint: "moon space",
+    href: "/lab/3",
+  },
+    {
+    title: "단 한 사람",
+    author: "최진영",
+    genre: "장편소설",
+    image: "https://picsum.photos/300/400",
+    aiHint: "tree snow",
+    href: "/lab/4",
   },
   {
-    title: "System Uptime",
-    value: "99.99%",
-    icon: Activity,
-    description: "Operational stability",
+    title: "어떤 비밀",
+    author: "최진영",
+    genre: "산문",
+    image: "https://picsum.photos/300/400",
+    aiHint: "washing hands",
+    href: "/lab/5",
+  },
+  {
+    title: "해가 지는 곳으로",
+    author: "최진영",
+    genre: "장편소설",
+    image: "https://picsum.photos/300/400",
+    aiHint: "moon space",
+    href: "/lab/6",
   },
 ];
 
-export default function LabPage({ params }: { params: { labId: string } }) {
+const recentUpdates = [
+  {
+    lab: "LAB 1",
+    update: "New diagnostic protocol for viral loads deployed.",
+    date: new Date(new Date().setDate(new Date().getDate() - 2)),
+    href: "/lab/1",
+  },
+  {
+    lab: "LAB 3",
+    update: "Upgraded imaging software to version 3.1, enhancing resolution by 15%.",
+    date: new Date(new Date().setDate(new Date().getDate() - 5)),
+    href: "/lab/3",
+  },
+  {
+    lab: "LAB 2",
+    update: "Completed sequencing for the 'Azure' cohort study.",
+    date: new Date(new Date().setDate(new Date().getDate() - 8)),
+    href: "/lab/2",
+  },
+  {
+    lab: "LAB 5",
+    update: "Published findings on metabolic pathway P-450 in 'Nature Protocols'.",
+    date: new Date(new Date().setDate(new Date().getDate() - 12)),
+    href: "/lab/5",
+  },
+  {
+    lab: "LAB 4",
+    update: "Synthesized three new chemical compounds for testing.",
+    date: new Date(new Date().setDate(new Date().getDate() - 20)),
+    href: "/lab/4",
+  }
+];
+
+export default function Lab3DashboardPage({ params }: { params: { labId: string } }) {
+
+  if (params.labId !== '3') {
+    notFound();
+  }
+  
+  const isRecent = (date: Date) => {
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    return date > sevenDaysAgo;
+  };
+
   return (
-    <div className="container mx-auto py-10 px-4 md:px-6">
-      <header className="mb-12 text-center">
-        <h1 className="font-headline text-5xl md:text-6xl font-bold">LAB{params.labId} Dashboard</h1>
-        <p className="text-lg text-muted-foreground mt-2">Real-time insights from our laboratory operations.</p>
+    <div className="container mx-auto py-10 px-4 md:px-6 bg-background">
+      <header className="mb-12">
+        <h1 className="font-headline text-5xl md:text-6xl font-bold">LAB3 Dashboard</h1>
+        <p className="text-lg text-muted-foreground mt-2">Curated content and recent updates from LAB3.</p>
       </header>
       
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-6">
-        {keyMetrics.map((metric) => (
-          <Card key={metric.title}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{metric.title}</CardTitle>
-              <metric.icon className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{metric.value}</div>
-              <p className="text-xs text-muted-foreground">{metric.description}</p>
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex justify-between items-center mb-12">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold flex items-center">
+              추천도서 <Plus className="ml-2 h-8 w-8" />
+            </h2>
+          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {recommendedBooks.map((book, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="overflow-hidden">
+                      <Link href={book.href}>
+                        <CardContent className="p-0">
+                          <div className="relative aspect-[3/4] w-full">
+                            <Image
+                              src={book.image}
+                              alt={book.title}
+                              data-ai-hint={book.aiHint}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        </CardContent>
+                      </Link>
+                    </Card>
+                    <div className="pt-4 text-center">
+                      <p className="font-semibold">{`${book.title} : ${book.author}`}</p>
+                      <p className="text-sm text-muted-foreground">{book.genre}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold"> 최근 업데이트 </h2>
+            <p className="text-lg text-muted-foreground mt-2">최근 일주일 내의 변경사항에대한 정보 </p>
+          </div>
+          <Card>
+            <CardContent className="p-0">
+              <div className="divide-y divide-border">
+                {recentUpdates.map((item) => (
+                  <Link href={item.href} key={item.lab + item.update} className="block hover:bg-muted/50 transition-colors">
+                    <div className="flex items-center p-4">
+                      <div className="w-8 text-center">
+                        {isRecent(item.date) && <Star className="h-5 w-5 text-yellow-500 fill-yellow-400" />}
+                      </div>
+                      <div className="flex-1 ml-4">
+                        <p className="font-semibold text-sm">
+                          <span className="font-bold">{item.lab}:</span> {item.update}
+                        </p>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{item.date.toLocaleDateString()}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </CardContent>
           </Card>
-        ))}
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-5">
-        <Card className="lg:col-span-3">
-          <CardHeader>
-            <CardTitle>Experiment Progress</CardTitle>
-            <CardDescription>Monthly progress of ongoing experiments</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <LabChart />
-          </CardContent>
-        </Card>
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
-            <CardDescription>Latest logs and system notifications.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <FlaskConical className="h-5 w-5 mt-1 text-primary flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-sm">Experiment #EX-073 started</p>
-                  <p className="text-xs text-muted-foreground">Calibration sequence initiated. Analyst: Dr. Anya Sharma</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Dna className="h-5 w-5 mt-1 text-primary flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-sm">DNA Sequencing complete</p>
-                  <p className="text-xs text-muted-foreground">Sample #S-981 data uploaded to repository.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Activity className="h-5 w-5 mt-1 text-primary flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-sm">System Maintenance</p>
-                  <p className="text-xs text-muted-foreground">Spectrometer #3 scheduled for maintenance at 4 PM UTC.</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

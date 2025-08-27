@@ -10,8 +10,8 @@ import { ChatProvider } from '@/context/chat-context';
 import { AuthProvider } from '@/context/auth-context';
 
 export const metadata: Metadata = {
-  title: 'LabLustre',
-  description: 'Welcome to LabLustre, where innovation meets precision.',
+  title: 'YB',
+  description: 'Welcome to YB, where innovation meets precision.',
 };
 
 export default function RootLayout({

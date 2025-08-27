@@ -83,7 +83,7 @@ export default function Chat() {
         >
           <div className="flex items-center space-x-2">
             <GripVertical className="h-5 w-5 text-zinc-500" />
-            <h2 className="text-white text-lg font-semibold">LabLustre Virtual Assistant</h2>
+            <h2 className="text-white text-lg font-semibold">YB Virtual Assistant</h2>
           </div>
           <div className="flex items-center space-x-2">
               <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8">
@@ -102,7 +102,7 @@ export default function Chat() {
             </div>
             <div className="bg-zinc-800 rounded-lg p-3 max-w-[85%]">
               <p className="text-sm">
-                Hello! I am the LabLustre Virtual Assistant. How can I help you today?
+                Hello! I am the YB Virtual Assistant. How can I help you today?
               </p>
             </div>
           </div>

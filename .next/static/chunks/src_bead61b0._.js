@@ -247,7 +247,7 @@ const Logo = ({ className })=>{
         href: "/",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-2xl font-headline font-bold text-primary", className),
-            children: "LabLustre"
+            children: "YB"
         }, void 0, false, {
             fileName: "[project]/src/components/logo.tsx",
             lineNumber: 7,
@@ -1276,7 +1276,7 @@ function Chat() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     className: "text-white text-lg font-semibold",
-                                    children: "LabLustre Virtual Assistant"
+                                    children: "YB Virtual Assistant"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/chat.tsx",
                                     lineNumber: 86,
@@ -1368,7 +1368,7 @@ function Chat() {
                                     className: "bg-zinc-800 rounded-lg p-3 max-w-[85%]",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-sm",
-                                        children: "Hello! I am the LabLustre Virtual Assistant. How can I help you today?"
+                                        children: "Hello! I am the YB Virtual Assistant. How can I help you today?"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/chat.tsx",
                                         lineNumber: 104,

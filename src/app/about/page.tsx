@@ -49,7 +49,7 @@ const teamMembers = [
 ];
 
 const historyEvents = [
-    { year: "2010", event: "LabLustre is founded with a mission to revolutionize diagnostic medicine." },
+    { year: "2010", event: "YB is founded with a mission to revolutionize diagnostic medicine." },
     { year: "2012", event: "Opened our first state-of-the-art laboratory facility." },
     { year: "2015", event: "Launched our flagship genetic sequencing service, achieving 99.9% accuracy." },
     { year: "2018", event: "Expanded our operations to Asia, opening a new hub in Seoul." },
@@ -129,7 +129,7 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h1 className="font-headline text-5xl md:text-7xl font-bold text-white leading-tight">
-            About LabLustre
+            About YB
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mt-4">
             Pioneering the future of scientific research through innovation, precision, and collaboration.
@@ -176,7 +176,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="font-headline text-4xl md:text-5xl font-bold">Meet Our Team</h2>
-            <p className="text-lg text-muted-foreground mt-2">The brilliant minds behind LabLustre.</p>
+            <p className="text-lg text-muted-foreground mt-2">The brilliant minds behind YB.</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
             {teamMembers.map((member) => (

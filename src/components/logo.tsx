@@ -5,7 +5,7 @@ const Logo = ({ className }: { className?: string }) => {
   return (
     <Link href="/">
       <span className={cn("text-2xl font-headline font-bold text-primary", className)}>
-        LabLustre
+        YB
       </span>
     </Link>
   );

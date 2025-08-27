@@ -95,8 +95,8 @@ export default function MyPage() {
                                 <div className="space-y-2 text-sm">
                                     <p>
                                         For any inquiries, please contact the management team at{' '}
-                                        <a href="mailto:support@lablustre.com" className="text-primary underline">
-                                            support@lablustre.com
+                                        <a href="mailto:support@yb.com" className="text-primary underline">
+                                            support@yb.com
                                         </a>.
                                     </p>
                                     <Link href="#" className="text-primary underline">

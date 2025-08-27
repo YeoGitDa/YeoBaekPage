@@ -1302,10 +1302,6 @@ body {
   background-color: #0000;
 }
 
-.bg-white\/70 {
-  background-color: #ffffffb3;
-}
-
 .bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1));
@@ -1314,14 +1310,6 @@ body {
 .bg-zinc-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1));
-}
-
-.bg-white\/80 {
-  background-color: #fffc;
-}
-
-.bg-black\/30 {
-  background-color: #0000004d;
 }
 
 .fill-current {
@@ -1599,11 +1587,6 @@ body {
   color: hsl(var(--accent-foreground));
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
-}
-
 .text-card-foreground {
   color: hsl(var(--card-foreground));
 }
@@ -1634,11 +1617,6 @@ body {
 
 .text-muted-foreground {
   color: hsl(var(--muted-foreground));
-}
-
-.text-neutral-800 {
-  --tw-text-opacity: 1;
-  color: rgb(38 38 38 / var(--tw-text-opacity, 1));
 }
 
 .text-popover-foreground {
@@ -1885,10 +1863,6 @@ body {
 
 .ease-in-out {
   animation-timing-function: cubic-bezier(.4, 0, .2, 1);
-}
-
-.running {
-  animation-play-state: running;
 }
 
 .file\:border-0::file-selector-button {

@@ -497,7 +497,7 @@ const recommendedBooks = [
         title: "단 한 사람",
         author: "최진영",
         genre: "장편소설",
-        image: "https://picsum.photos/300/400",
+        image: "https://picsum.photos/300/300",
         aiHint: "tree snow",
         href: "/lab/1"
     },
@@ -505,7 +505,7 @@ const recommendedBooks = [
         title: "어떤 비밀",
         author: "최진영",
         genre: "산문",
-        image: "https://picsum.photos/300/400",
+        image: "https://picsum.photos/300/300",
         aiHint: "washing hands",
         href: "/lab/2"
     },
@@ -513,7 +513,7 @@ const recommendedBooks = [
         title: "해가 지는 곳으로",
         author: "최진영",
         genre: "장편소설",
-        image: "https://picsum.photos/300/400",
+        image: "https://picsum.photos/300/300",
         aiHint: "moon space",
         href: "/lab/3"
     },
@@ -521,7 +521,7 @@ const recommendedBooks = [
         title: "단 한 사람",
         author: "최진영",
         genre: "장편소설",
-        image: "https://picsum.photos/300/400",
+        image: "https://picsum.photos/300/300",
         aiHint: "tree snow",
         href: "/lab/4"
     },
@@ -529,7 +529,7 @@ const recommendedBooks = [
         title: "어떤 비밀",
         author: "최진영",
         genre: "산문",
-        image: "https://picsum.photos/300/400",
+        image: "https://picsum.photos/300/300",
         aiHint: "washing hands",
         href: "/lab/5"
     },
@@ -537,7 +537,7 @@ const recommendedBooks = [
         title: "해가 지는 곳으로",
         author: "최진영",
         genre: "장편소설",
-        image: "https://picsum.photos/300/400",
+        image: "https://picsum.photos/300/300",
         aiHint: "moon space",
         href: "/lab/6"
     }
@@ -649,7 +649,7 @@ function Lab3DashboardPage({ params }) {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselContent"], {
                                     children: recommendedBooks.map((book, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselItem"], {
-                                            className: "md:basis-1/2 lg:basis-1/3",
+                                            className: "sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "p-1",
                                                 children: [
@@ -660,7 +660,7 @@ function Lab3DashboardPage({ params }) {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CardContent"], {
                                                                 className: "p-0",
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "relative aspect-[3/4] w-full",
+                                                                    className: "relative aspect-square w-full",
                                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                                                         src: book.image,
                                                                         alt: book.title,

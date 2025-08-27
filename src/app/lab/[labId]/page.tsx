@@ -113,7 +113,7 @@ export default function Lab3DashboardPage({ params }: { params: { labId: string 
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex justify-between items-center mb-12">
             <h2 className="font-headline text-4xl md:text-5xl font-bold flex items-center">
-              추천도서 <Plus className="ml-2 h-8 w-8" />
+              LAB3 : AICuration <Plus className="ml-2 h-8 w-8" />
             </h2>
           </div>
           <Carousel

@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      }
     ],
     domains: ["images.unsplash.com"], // <-- 이 자리에 정확히!
   },

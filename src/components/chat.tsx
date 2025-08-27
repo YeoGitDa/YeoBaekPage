@@ -24,7 +24,7 @@ export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "bot",
-      text: "Hello! I am the YB Virtual Assistant. How can I help you today?",
+      text: "Hello! I am Yeobaek-bot. How can I help you today?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -131,7 +131,7 @@ export default function Chat() {
         >
           <div className="flex items-center space-x-2">
             <GripVertical className="h-5 w-5 text-zinc-500" />
-            <h2 className="text-white text-lg font-semibold">YB Virtual Assistant</h2>
+            <h2 className="text-white text-lg font-semibold">Yeobaek-bot</h2>
           </div>
           <div className="flex items-center space-x-2">
               <Button variant="ghost" size="icon" className="text-zinc-400 hover:text-white h-8 w-8">

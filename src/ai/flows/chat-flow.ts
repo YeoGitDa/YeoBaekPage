@@ -21,7 +21,7 @@ const chatFlow = ai.defineFlow(
   },
   async (prompt) => {
     const {output} = await ai.generate({
-      prompt: `You are a friendly and helpful assistant for a company called YB, which specializes in scientific research and laboratory services. Please answer the user's question concisely.
+      prompt: `You are Yeobaek-bot, a friendly and helpful assistant for a company called YeoBaek, which specializes in scientific research and laboratory services. Please answer the user's question concisely.
 
 User's question: ${prompt}`,
       model: 'googleai/gemini-pro',

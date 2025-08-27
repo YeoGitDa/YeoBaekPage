@@ -1,53 +1,16 @@
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-
-const services = [
-  {
-    title: "Chat bot Service",
-    description: "High-throughput DNA and RNA sequencing services with comprehensive bioinformatics analysis. Uncover genetic markers and variations with unparalleled accuracy.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "dna microscope"
-  },
-  {
-    title: "LLM - AI Client",
-    description: "Advanced mass spectrometry for protein identification, quantification, and post-translational modification analysis. Your key to understanding cellular function.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "protein structure"
-  },
-  {
-    title: "AICurator",
-    description: "State-of-the-art microscopy and imaging techniques to visualize cellular structures and processes in real-time. See the unseen world inside the cell.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "cells microscope"
-  },
-  {
-    title: "MCP - FineTuning",
-    description: "Comprehensive analysis of small-molecule metabolites. Gain insights into metabolic pathways and disease states for biomarker discovery and research.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "chemistry lab"
-  },
-  {
-    title: "Research Assistant",
-    description: "Custom assay design, validation, and screening services to accelerate your drug discovery and development pipeline. Reliable results, faster decisions.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "lab research"
-  },
-  {
-    title: "May AI Help You Service",
-    description: "Expert consultation and bespoke data analysis solutions to help you interpret complex biological data and extract meaningful, actionable insights.",
-    image: "https://placehold.co/600x400.png",
-    aiHint: "data visualization"
-  }
-];
+import { services } from "@/data/services";
 
 export default function ServicesPage() {
   return (
     <div className="container mx-auto py-10 px-4 md:px-6">
       <header className="mb-12 text-center">
-        <h1 className="font-headline text-5xl md:text-6xl font-bold">Our Solution</h1>
+        <h1 className="font-headline text-5xl md:text-6xl font-bold">Our Functions</h1>
         <p className="text-lg text-muted-foreground mt-2">Precision-driven solutions for complex scientific challenges.</p>
       </header>
 
@@ -71,7 +34,7 @@ export default function ServicesPage() {
             </CardContent>
             <CardFooter>
               <Button asChild variant="link" className="text-primary p-0 h-auto hover:no-underline">
-                <Link href="#">
+                <Link href={`/services/${service.slug}`}>
                   Learn More <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

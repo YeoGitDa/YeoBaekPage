@@ -27,19 +27,19 @@ const labFeatures = [
   {
     icon: "/Infra.png",
     title: "LAB 4",
-    description: "Chemical synthesis and experimentation.",
+    description: "Git, CI/CD, Firebase 연동 및 배포 실험을 위한 LAB입니다. ",
     href: "/lab/4",
   },
   {
     icon: "/Compition.png",
     title: "LAB 5",
-    description: "Biochemical assays and analysis.",
+    description: "대외활동 기반 앱/웹 프로젝트 고도화하는 LAB입니다. ",
     href: "/lab/5",
   },
   {
     icon:"/Idea.png",
     title: "LAB 6",
-    description: "Propelling research to new frontiers.",
+    description: "아이디어 기록, 발굴 및 실현하는 LAB입니다. ",
     href: "/lab/6",
   },
 ];

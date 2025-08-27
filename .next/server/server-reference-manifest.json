@@ -9,11 +9,16 @@
         "app/page": {
           "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/chat-flow.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false
+        },
+        "app/services/page": {
+          "moduleId": "[project]/.next-internal/server/app/services/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/chat-flow.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
         }
       },
       "layer": {
         "app/lab/[labId]/page": "action-browser",
-        "app/page": "action-browser"
+        "app/page": "action-browser",
+        "app/services/page": "action-browser"
       }
     }
   },

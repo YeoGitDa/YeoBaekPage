@@ -714,6 +714,10 @@ body {
   height: 1px;
 }
 
+.h-80 {
+  height: 20rem;
+}
+
 .max-h-96 {
   max-height: 24rem;
 }
@@ -872,6 +876,10 @@ body {
 
 .max-w-md {
   max-width: 28rem;
+}
+
+.max-w-none {
+  max-width: none;
 }
 
 .flex-1 {

@@ -11,7 +11,7 @@ const recommendedBooks = [
     title: "단 한 사람",
     author: "최진영",
     genre: "장편소설",
-    image: "https://picsum.photos/300/400",
+    image: "https://picsum.photos/300/300",
     aiHint: "tree snow",
     href: "/lab/1",
   },
@@ -19,7 +19,7 @@ const recommendedBooks = [
     title: "어떤 비밀",
     author: "최진영",
     genre: "산문",
-    image: "https://picsum.photos/300/400",
+    image: "https://picsum.photos/300/300",
     aiHint: "washing hands",
     href: "/lab/2",
   },
@@ -27,7 +27,7 @@ const recommendedBooks = [
     title: "해가 지는 곳으로",
     author: "최진영",
     genre: "장편소설",
-    image: "https://picsum.photos/300/400",
+    image: "https://picsum.photos/300/300",
     aiHint: "moon space",
     href: "/lab/3",
   },
@@ -35,7 +35,7 @@ const recommendedBooks = [
     title: "단 한 사람",
     author: "최진영",
     genre: "장편소설",
-    image: "https://picsum.photos/300/400",
+    image: "https://picsum.photos/300/300",
     aiHint: "tree snow",
     href: "/lab/4",
   },
@@ -43,7 +43,7 @@ const recommendedBooks = [
     title: "어떤 비밀",
     author: "최진영",
     genre: "산문",
-    image: "https://picsum.photos/300/400",
+    image: "https://picsum.photos/300/300",
     aiHint: "washing hands",
     href: "/lab/5",
   },
@@ -51,7 +51,7 @@ const recommendedBooks = [
     title: "해가 지는 곳으로",
     author: "최진영",
     genre: "장편소설",
-    image: "https://picsum.photos/300/400",
+    image: "https://picsum.photos/300/300",
     aiHint: "moon space",
     href: "/lab/6",
   },
@@ -125,12 +125,12 @@ export default function Lab3DashboardPage({ params }: { params: { labId: string 
           >
             <CarouselContent>
               {recommendedBooks.map((book, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                   <div className="p-1">
                     <Card className="overflow-hidden">
                       <Link href={book.href}>
                         <CardContent className="p-0">
-                          <div className="relative aspect-[3/4] w-full">
+                          <div className="relative aspect-square w-full">
                             <Image
                               src={book.image}
                               alt={book.title}

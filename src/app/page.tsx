@@ -131,7 +131,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center gap-4">
             <Button asChild size="lg" className="font-bold text-base">
-              <Link href="/lab/1"> LAB 구경하기 </Link>
+              <Link href="#lab-info"> LAB 구경하기 </Link>
             </Button>
             <Button asChild size="lg" variant="secondary" className="font-bold text-base">
               <Link href="/services"> 서비스 구경하기 </Link>
@@ -203,7 +203,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section id="lab-info" className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="font-headline text-4xl md:text-5xl font-bold">LAB Info</h2>

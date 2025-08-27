@@ -102,58 +102,6 @@ const recentUpdates = [
   }
 ];
 
-const recommendedBooks = [
-  {
-    title: "단 한 사람",
-    author: "최진영",
-    genre: "장편소설",
-    image: "https://picsum.photos/300/400",
-    aiHint: "tree snow",
-    href: "/lab/1",
-  },
-  {
-    title: "어떤 비밀",
-    author: "최진영",
-    genre: "산문",
-    image: "https://picsum.photos/300/400",
-    aiHint: "washing hands",
-    href: "/lab/2",
-  },
-  {
-    title: "해가 지는 곳으로",
-    author: "최진영",
-    genre: "장편소설",
-    image: "https://picsum.photos/300/400",
-    aiHint: "moon space",
-    href: "/lab/3",
-  },
-    {
-    title: "단 한 사람",
-    author: "최진영",
-    genre: "장편소설",
-    image: "https://picsum.photos/300/400",
-    aiHint: "tree snow",
-    href: "/lab/4",
-  },
-  {
-    title: "어떤 비밀",
-    author: "최진영",
-    genre: "산문",
-    image: "https://picsum.photos/300/400",
-    aiHint: "washing hands",
-    href: "/lab/5",
-  },
-  {
-    title: "해가 지는 곳으로",
-    author: "최진영",
-    genre: "장편소설",
-    image: "https://picsum.photos/300/400",
-    aiHint: "moon space",
-    href: "/lab/6",
-  },
-];
-
-
 export default function Home() {
   const isRecent = (date: Date) => {
     const sevenDaysAgo = new Date();
@@ -222,53 +170,6 @@ export default function Home() {
                     </div>
                 ))}
             </div>
-        </div>
-      </section>
-
-       <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold flex items-center">
-              추천도서 <Plus className="ml-2 h-8 w-8" />
-            </h2>
-          </div>
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {recommendedBooks.map((book, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card className="overflow-hidden">
-                      <Link href={book.href}>
-                        <CardContent className="p-0">
-                          <div className="relative aspect-[3/4] w-full">
-                            <Image
-                              src={book.image}
-                              alt={book.title}
-                              data-ai-hint={book.aiHint}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        </CardContent>
-                      </Link>
-                    </Card>
-                    <div className="pt-4 text-center">
-                      <p className="font-semibold">{`${book.title} : ${book.author}`}</p>
-                      <p className="text-sm text-muted-foreground">{book.genre}</p>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
         </div>
       </section>
 

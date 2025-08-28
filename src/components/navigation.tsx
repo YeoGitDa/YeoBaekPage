@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, LogIn, User } from "lucide-react";
+import { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -20,21 +21,54 @@ const navLinks = [
 const Navigation = () => {
   const pathname = usePathname();
   const { isLoggedIn, logout } = useAuth();
+  const [activeLabSection, setActiveLabSection] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const labInfoSection = document.getElementById("lab-info");
+      if (labInfoSection) {
+        const rect = labInfoSection.getBoundingClientRect();
+        const isInView = rect.top <= 100 && rect.bottom >= 100;
+        setActiveLabSection(isInView);
+      } else {
+        setActiveLabSection(false);
+      }
+    };
+
+    if (pathname === "/") {
+      window.addEventListener("scroll", handleScroll);
+      // Initial check
+      handleScroll();
+    } else {
+      setActiveLabSection(false);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [pathname]);
 
   const NavLinks = ({ className }: { className?: string }) => (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
-      {navLinks.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          className={cn(
-            "text-sm font-medium transition-colors hover:text-primary",
-            (pathname.startsWith(link.href) && link.href !== "/") || pathname === link.href ? "text-primary" : "text-foreground/80"
-          )}
-        >
-          {link.label}
-        </Link>
-      ))}
+      {navLinks.map((link) => {
+        const isLabLinkOnHome = link.href === "/lab" && pathname === "/";
+        const isPathActive = (pathname.startsWith(link.href) && link.href !== "/") || pathname === link.href;
+
+        return (
+            <Link
+              key={link.href}
+              href={isLabLinkOnHome ? "#lab-info" : link.href}
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-primary",
+                (isPathActive && !isLabLinkOnHome) || (isLabLinkOnHome && activeLabSection)
+                  ? "text-primary"
+                  : "text-foreground/80"
+              )}
+            >
+              {link.label}
+            </Link>
+        );
+      })}
     </nav>
   );
 
@@ -78,18 +112,24 @@ const Navigation = () => {
               <div className="p-4">
                 <Logo />
                 <div className="flex flex-col space-y-4 pt-10">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary",
-                        (pathname.startsWith(link.href) && link.href !== "/") || pathname === link.href ? "text-primary" : "text-foreground"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                  {navLinks.map((link) => {
+                    const isLabLinkOnHome = link.href === "/lab" && pathname === "/";
+                     const isPathActive = (pathname.startsWith(link.href) && link.href !== "/") || pathname === link.href;
+                    return (
+                        <Link
+                          key={link.href}
+                          href={isLabLinkOnHome ? "#lab-info" : link.href}
+                          className={cn(
+                            "text-lg font-medium transition-colors hover:text-primary",
+                             (isPathActive && !isLabLinkOnHome) || (isLabLinkOnHome && activeLabSection)
+                              ? "text-primary"
+                              : "text-foreground"
+                          )}
+                        >
+                          {link.label}
+                        </Link>
+                    )
+                    })}
                    {isLoggedIn ? (
                     <Button asChild className="mt-4">
                         <Link href="/my-page">

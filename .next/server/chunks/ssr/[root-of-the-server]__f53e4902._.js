@@ -474,7 +474,7 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$c
 var { g: global, __dirname } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "default": (()=>Lab3DashboardPage)
+    "default": (()=>LabDashboardPage)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/card.tsx [app-rsc] (ecmascript)");
@@ -538,44 +538,7 @@ const recommendedBooks = [
         href: "/lab/6"
     }
 ];
-const recentUpdates = [
-    {
-        lab: "LAB 1",
-        update: "New diagnostic protocol for viral loads deployed.",
-        date: new Date(new Date().setDate(new Date().getDate() - 2)),
-        href: "/lab/1"
-    },
-    {
-        lab: "LAB 3",
-        update: "Upgraded imaging software to version 3.1, enhancing resolution by 15%.",
-        date: new Date(new Date().setDate(new Date().getDate() - 5)),
-        href: "/lab/3"
-    },
-    {
-        lab: "LAB 2",
-        update: "Completed sequencing for the 'Azure' cohort study.",
-        date: new Date(new Date().setDate(new Date().getDate() - 8)),
-        href: "/lab/2"
-    },
-    {
-        lab: "LAB 5",
-        update: "Published findings on metabolic pathway P-450 in 'Nature Protocols'.",
-        date: new Date(new Date().setDate(new Date().getDate() - 12)),
-        href: "/lab/5"
-    },
-    {
-        lab: "LAB 4",
-        update: "Synthesized three new chemical compounds for testing.",
-        date: new Date(new Date().setDate(new Date().getDate() - 20)),
-        href: "/lab/4"
-    }
-];
-function Lab3DashboardPage({ params }) {
-    const isRecent = (date)=>{
-        const sevenDaysAgo = new Date();
-        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-        return date > sevenDaysAgo;
-    };
+function LabDashboardPage({ params }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "container mx-auto py-10 px-4 md:px-6 bg-background",
         children: [
@@ -584,24 +547,32 @@ function Lab3DashboardPage({ params }) {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                         className: "font-headline text-5xl md:text-6xl font-bold",
-                        children: "LAB3 Dashboard"
-                    }, void 0, false, {
+                        children: [
+                            "LAB",
+                            params.labId,
+                            " Dashboard"
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                        lineNumber: 106,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-lg text-muted-foreground mt-2",
-                        children: "Curated content and recent updates from LAB3."
-                    }, void 0, false, {
+                        children: [
+                            "Curated content and recent updates from LAB",
+                            params.labId,
+                            "."
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                        lineNumber: 107,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                lineNumber: 104,
+                lineNumber: 65,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -614,23 +585,25 @@ function Lab3DashboardPage({ params }) {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                 className: "font-headline text-4xl md:text-5xl font-bold flex items-center",
                                 children: [
-                                    "LAB3 : AICuration ",
+                                    "LAB",
+                                    params.labId,
+                                    " : AICuration ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
                                         className: "ml-2 h-8 w-8"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                        lineNumber: 113,
-                                        columnNumber: 33
+                                        lineNumber: 74,
+                                        columnNumber: 46
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                lineNumber: 112,
+                                lineNumber: 73,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                            lineNumber: 111,
+                            lineNumber: 72,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Carousel"], {
@@ -662,27 +635,27 @@ function Lab3DashboardPage({ params }) {
                                                                         className: "object-cover"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                                        lineNumber: 131,
+                                                                        lineNumber: 92,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                                    lineNumber: 130,
+                                                                    lineNumber: 91,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                                lineNumber: 129,
+                                                                lineNumber: 90,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                            lineNumber: 128,
+                                                            lineNumber: 89,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                        lineNumber: 127,
+                                                        lineNumber: 88,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -693,7 +666,7 @@ function Lab3DashboardPage({ params }) {
                                                                 children: `${book.title} : ${book.author}`
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                                lineNumber: 143,
+                                                                lineNumber: 104,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -701,62 +674,62 @@ function Lab3DashboardPage({ params }) {
                                                                 children: book.genre
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                                lineNumber: 144,
+                                                                lineNumber: 105,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                        lineNumber: 142,
+                                                        lineNumber: 103,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                                lineNumber: 126,
+                                                lineNumber: 87,
                                                 columnNumber: 19
                                             }, this)
                                         }, index, false, {
                                             fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                            lineNumber: 125,
+                                            lineNumber: 86,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                    lineNumber: 123,
+                                    lineNumber: 84,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselPrevious"], {}, void 0, false, {
                                     fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                    lineNumber: 150,
+                                    lineNumber: 111,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselNext"], {}, void 0, false, {
                                     fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                                    lineNumber: 151,
+                                    lineNumber: 112,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                            lineNumber: 116,
+                            lineNumber: 77,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                    lineNumber: 110,
+                    lineNumber: 71,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/lab/[labId]/page.tsx",
-                lineNumber: 109,
+                lineNumber: 70,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/lab/[labId]/page.tsx",
-        lineNumber: 103,
+        lineNumber: 64,
         columnNumber: 5
     }, this);
 }

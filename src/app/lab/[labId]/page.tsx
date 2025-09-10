@@ -92,9 +92,6 @@ const recentUpdates = [
 
 export default function Lab3DashboardPage({ params }: { params: { labId: string } }) {
 
-  if (params.labId !== '3') {
-    notFound();
-  }
   
   const isRecent = (date: Date) => {
     const sevenDaysAgo = new Date();
@@ -105,10 +102,10 @@ export default function Lab3DashboardPage({ params }: { params: { labId: string 
   return (
     <div className="container mx-auto py-10 px-4 md:px-6 bg-background">
       <header className="mb-12">
+
         <h1 className="font-headline text-5xl md:text-6xl font-bold">LAB3 Dashboard</h1>
         <p className="text-lg text-muted-foreground mt-2">Curated content and recent updates from LAB3.</p>
       </header>
-      
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex justify-between items-center mb-12">

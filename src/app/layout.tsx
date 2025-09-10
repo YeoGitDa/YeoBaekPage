@@ -12,6 +12,14 @@ import { AuthProvider } from '@/context/auth-context';
 export const metadata: Metadata = {
   title: 'YB',
   description: 'Welcome to YB, where innovation meets precision.',
+viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1
+},
+verification: {
+    google: 'U_DViqUesfC_8iagWAFJeoJlE3g4aj55I-aTkgaxPeg',
+}
 };
 
 export default function RootLayout({

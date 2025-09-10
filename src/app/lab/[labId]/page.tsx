@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Star, Plus } from "lucide-react";
@@ -57,60 +58,20 @@ const recommendedBooks = [
   },
 ];
 
-const recentUpdates = [
-  {
-    lab: "LAB 1",
-    update: "New diagnostic protocol for viral loads deployed.",
-    date: new Date(new Date().setDate(new Date().getDate() - 2)),
-    href: "/lab/1",
-  },
-  {
-    lab: "LAB 3",
-    update: "Upgraded imaging software to version 3.1, enhancing resolution by 15%.",
-    date: new Date(new Date().setDate(new Date().getDate() - 5)),
-    href: "/lab/3",
-  },
-  {
-    lab: "LAB 2",
-    update: "Completed sequencing for the 'Azure' cohort study.",
-    date: new Date(new Date().setDate(new Date().getDate() - 8)),
-    href: "/lab/2",
-  },
-  {
-    lab: "LAB 5",
-    update: "Published findings on metabolic pathway P-450 in 'Nature Protocols'.",
-    date: new Date(new Date().setDate(new Date().getDate() - 12)),
-    href: "/lab/5",
-  },
-  {
-    lab: "LAB 4",
-    update: "Synthesized three new chemical compounds for testing.",
-    date: new Date(new Date().setDate(new Date().getDate() - 20)),
-    href: "/lab/4",
-  }
-];
-
-export default function Lab3DashboardPage({ params }: { params: { labId: string } }) {
-
-  
-  const isRecent = (date: Date) => {
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    return date > sevenDaysAgo;
-  };
+export default function LabDashboardPage({ params }: { params: { labId: string } }) {
 
   return (
     <div className="container mx-auto py-10 px-4 md:px-6 bg-background">
       <header className="mb-12">
 
-        <h1 className="font-headline text-5xl md:text-6xl font-bold">LAB3 Dashboard</h1>
-        <p className="text-lg text-muted-foreground mt-2">Curated content and recent updates from LAB3.</p>
+        <h1 className="font-headline text-5xl md:text-6xl font-bold">LAB{params.labId} Dashboard</h1>
+        <p className="text-lg text-muted-foreground mt-2">Curated content and recent updates from LAB{params.labId}.</p>
       </header>
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex justify-between items-center mb-12">
             <h2 className="font-headline text-4xl md:text-5xl font-bold flex items-center">
-              LAB3 : AICuration <Plus className="ml-2 h-8 w-8" />
+              LAB{params.labId} : AICuration <Plus className="ml-2 h-8 w-8" />
             </h2>
           </div>
           <Carousel

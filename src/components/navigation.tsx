@@ -1,0 +1,158 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, LogIn, User } from "lucide-react";
+import { useState, useEffect } from "react";
+
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import Logo from "@/components/logo";
+import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/use-auth";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/lab", label: "LAB" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+];
+
+const Navigation = () => {
+  const pathname = usePathname();
+  const { isLoggedIn, logout } = useAuth();
+  const [activeLabSection, setActiveLabSection] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const labInfoSection = document.getElementById("lab-info");
+      if (labInfoSection) {
+        const rect = labInfoSection.getBoundingClientRect();
+        const isInView = rect.top <= 100 && rect.bottom >= 100;
+        setActiveLabSection(isInView);
+      } else {
+        setActiveLabSection(false);
+      }
+    };
+
+    if (pathname === "/") {
+      window.addEventListener("scroll", handleScroll);
+      // Initial check
+      handleScroll();
+    } else {
+      setActiveLabSection(false);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [pathname]);
+
+  const NavLinks = ({ className }: { className?: string }) => (
+    <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
+      {navLinks.map((link) => {
+        const isLabLinkOnHome = link.href === "/lab" && pathname === "/";
+        const isPathActive = (pathname.startsWith(link.href) && link.href !== "/") || pathname === link.href;
+
+        return (
+            <Link
+              key={link.href}
+              href={isLabLinkOnHome ? "#lab-info" : link.href}
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-primary",
+                (isPathActive && !isLabLinkOnHome) || (isLabLinkOnHome && activeLabSection)
+                  ? "text-primary"
+                  : "text-foreground/80"
+              )}
+            >
+              {link.label}
+            </Link>
+        );
+      })}
+    </nav>
+  );
+
+  return (
+    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center px-4 md:px-6">
+        <div className="mr-8 hidden md:flex">
+          <Logo />
+        </div>
+        <div className="hidden md:flex flex-1 items-center justify-start">
+          <NavLinks />
+        </div>
+        <div className="hidden md:flex items-center justify-end">
+          {isLoggedIn ? (
+             <Button asChild>
+                <Link href="/my-page">
+                    <User className="mr-2 h-4 w-4" />
+                    My Page
+                </Link>
+            </Button>
+          ) : (
+          <Button asChild>
+            <Link href="/login">
+              <LogIn className="mr-2 h-4 w-4" />
+              Login/Join
+            </Link>
+          </Button>
+          )}
+        </div>
+        <div className="md:hidden flex flex-1 items-center justify-between">
+          <Logo />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle Navigation</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+              <div className="p-4">
+                <Logo />
+                <div className="flex flex-col space-y-4 pt-10">
+                  {navLinks.map((link) => {
+                    const isLabLinkOnHome = link.href === "/lab" && pathname === "/";
+                     const isPathActive = (pathname.startsWith(link.href) && link.href !== "/") || pathname === link.href;
+                    return (
+                        <Link
+                          key={link.href}
+                          href={isLabLinkOnHome ? "#lab-info" : link.href}
+                          className={cn(
+                            "text-lg font-medium transition-colors hover:text-primary",
+                             (isPathActive && !isLabLinkOnHome) || (isLabLinkOnHome && activeLabSection)
+                              ? "text-primary"
+                              : "text-foreground"
+                          )}
+                        >
+                          {link.label}
+                        </Link>
+                    )
+                    })}
+                   {isLoggedIn ? (
+                    <Button asChild className="mt-4">
+                        <Link href="/my-page">
+                            <User className="mr-2 h-4 w-4" />
+                            My Page
+                        </Link>
+                    </Button>
+                  ) : (
+                  <Button asChild className="mt-4">
+                    <Link href="/login">
+                      <LogIn className="mr-2 h-4 w-4" />
+                      Login/Join
+                    </Link>
+                  </Button>
+                   )}
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Navigation;

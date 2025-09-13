@@ -803,7 +803,7 @@ const metadata = {
         maximumScale: 1
     },
     verification: {
-        google: 'U_DViqUesfC_8iagWAFJeoJlE3g4aj55I-aTkgaxPeg'
+        google: 'XPWrlOdUmzduEkk1_O_bhOebn69L491fnzGhhzICybE'
     }
 };
 function RootLayout({ children }) {

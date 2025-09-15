@@ -1,26 +1,22 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  typescript: { ignoreBuildErrors: true },
+  eslint: { ignoreDuringBuilds: true },
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-      }
+      { protocol: 'https', hostname: 'placehold.co', pathname: '/**' },
+      { protocol: 'https', hostname: 'picsum.photos' },
     ],
-    domains: ["images.unsplash.com"], // <-- 이 자리에 정확히!
+    domains: ["images.unsplash.com"],
+  },
+  experimental: {
+    // @ts-expect-error: allowedDevOrigins is not yet in NextConfig types
+    allowedDevOrigins: [
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+      "https://3000-firebase-studio-1754493943612.cluster-6dx7corvpngoivimwvvljgokdw.cloudworkstations.dev",
+    ],
   },
 };
 

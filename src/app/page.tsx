@@ -84,10 +84,8 @@ export default function Home() {
   return (
     <>
       <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center overflow-hidden bg-[hsl(158,65%,10%)] text-white">
-        <div className="absolute top-0 left-0 w-full h-full">
-           <BackgroundSquares />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
+        <BackgroundSquares />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 pointer-events-none">
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">
             <SplitTextAnimation text="YeoBaek Web" />
           </h1>
@@ -95,14 +93,14 @@ export default function Home() {
             
             AI기반 서비스 구축으로 학과 내 모든 정보를 한 번에 ! 정보 공유부터 활용까지!
           </p>
-          <div className="flex justify-center gap-4">
-            <Button asChild size="lg" className="font-bold text-base">
-              <Link href="#lab-info"> LAB 구경하기 </Link>
-            </Button>
-            <Button asChild size="lg" variant="secondary" className="font-bold text-base">
-              <Link href="/services"> 서비스 구경하기 </Link>
-            </Button>
-          </div>
+        </div>
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex justify-center gap-4">
+          <Button asChild size="lg" className="font-bold text-base">
+            <Link href="#lab-info"> LAB 구경하기 </Link>
+          </Button>
+          <Button asChild size="lg" variant="secondary" className="font-bold text-base">
+            <Link href="/services"> 서비스 구경하기 </Link>
+          </Button>
         </div>
       </section>
 

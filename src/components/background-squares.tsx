@@ -29,34 +29,28 @@ const BackgroundSquares = () => {
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
     if (target.classList.contains('square-item')) {
-        // Reset all squares first
-        const squares = gridRef.current?.querySelectorAll('.square-item');
-        squares?.forEach(sq => {
-            (sq as HTMLElement).style.backgroundColor = '';
-        });
-        // Then color the target
         target.style.backgroundColor = 'hsl(var(--primary))';
     }
   };
 
-  const handleMouseLeave = () => {
-     const squares = gridRef.current?.querySelectorAll('.square-item');
-     squares?.forEach(square => {
-        (square as HTMLElement).style.backgroundColor = '';
-     });
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+     const target = e.target as HTMLElement;
+     if(target.classList.contains('square-item')) {
+        target.style.backgroundColor = '';
+     }
   };
 
   return (
     <div 
       ref={containerRef} 
-      className="absolute inset-0 h-full w-full overflow-hidden bg-background"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      className="absolute inset-0 h-full w-full overflow-hidden bg-transparent"
     >
       <div
         ref={gridRef}
         className="square-grid"
         style={{ "--num-cols": numCols } as React.CSSProperties}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         {Array.from({ length: 40 * numCols }).map((_, i) => (
           <div

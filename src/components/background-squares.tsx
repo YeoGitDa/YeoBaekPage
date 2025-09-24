@@ -11,8 +11,8 @@ const BackgroundSquares = () => {
   useEffect(() => {
     const calculateCols = () => {
       if (containerRef.current) {
-        // Assuming square size is roughly 32px + 1px gap
-        const num = Math.floor(window.innerWidth / 33);
+        // Assuming square size is roughly 40px + 1px gap
+        const num = Math.floor(window.innerWidth / 41);
         setNumCols(num);
       }
     };
@@ -34,7 +34,7 @@ const BackgroundSquares = () => {
       const centerY = top + height / 2;
       const distance = Math.sqrt(Math.pow(centerX - clientX, 2) + Math.pow(centerY - clientY, 2));
 
-      const maxDistance = 200; // Adjust this value to control the effect radius
+      const maxDistance = 300; // Adjust this value to control the effect radius
       if (distance < maxDistance) {
         const opacity = 1 - (distance / maxDistance);
         (square as HTMLElement).style.opacity = `${opacity}`;

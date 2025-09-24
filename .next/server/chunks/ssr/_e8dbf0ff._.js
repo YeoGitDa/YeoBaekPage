@@ -169,8 +169,8 @@ const BackgroundSquares = ()=>{
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const calculateCols = ()=>{
             if (containerRef.current) {
-                // Assuming square size is roughly 32px + 1px gap
-                const num = Math.floor(window.innerWidth / 33);
+                // Assuming square size is roughly 40px + 1px gap
+                const num = Math.floor(window.innerWidth / 41);
                 setNumCols(num);
             }
         };
@@ -188,7 +188,7 @@ const BackgroundSquares = ()=>{
             const centerX = left + width / 2;
             const centerY = top + height / 2;
             const distance = Math.sqrt(Math.pow(centerX - clientX, 2) + Math.pow(centerY - clientY, 2));
-            const maxDistance = 200; // Adjust this value to control the effect radius
+            const maxDistance = 300; // Adjust this value to control the effect radius
             if (distance < maxDistance) {
                 const opacity = 1 - distance / maxDistance;
                 square.style.opacity = `${opacity}`;

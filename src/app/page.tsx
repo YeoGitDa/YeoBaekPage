@@ -83,12 +83,12 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center overflow-hidden">
+      <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center overflow-hidden bg-[hsl(158,65%,10%)] text-white">
         <div className="absolute top-0 left-0 w-full h-full">
            <BackgroundSquares />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
+          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">
             <SplitTextAnimation text="YeoBaek Web" />
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8">

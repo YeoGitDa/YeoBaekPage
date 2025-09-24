@@ -1323,6 +1323,11 @@ body {
   background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[hsl\(158\,65\%\,10\%\)\] {
+  --tw-bg-opacity: 1;
+  background-color: hsl(158 65% 10% / var(--tw-bg-opacity, 1));
+}
+
 .fill-current {
   fill: currentColor;
 }

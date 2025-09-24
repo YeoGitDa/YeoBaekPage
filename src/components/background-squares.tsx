@@ -77,5 +77,3 @@ const BackgroundSquares = () => {
 };
 
 export default BackgroundSquares;
-
-    

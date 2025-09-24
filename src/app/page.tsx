@@ -75,51 +75,11 @@ const introCards = [
     }
 ];
 
-const recentUpdates = [
-  {
-    lab: "LAB 1",
-    update: "New diagnostic protocol for viral loads deployed.",
-    date: new Date(new Date().setDate(new Date().getDate() - 2)),
-    href: "/lab/1",
-  },
-  {
-    lab: "LAB 3",
-    update: "Upgraded imaging software to version 3.1, enhancing resolution by 15%.",
-    date: new Date(new Date().setDate(new Date().getDate() - 5)),
-    href: "/lab/3",
-  },
-  {
-    lab: "LAB 2",
-    update: "Completed sequencing for the 'Azure' cohort study.",
-    date: new Date(new Date().setDate(new Date().getDate() - 8)),
-    href: "/lab/2",
-  },
-  {
-    lab: "LAB 5",
-    update: "Published findings on metabolic pathway P-450 in 'Nature Protocols'.",
-    date: new Date(new Date().setDate(new Date().getDate() - 12)),
-    href: "/lab/5",
-  },
-  {
-    lab: "LAB 4",
-    update: "Synthesized three new chemical compounds for testing.",
-    date: new Date(new Date().setDate(new Date().getDate() - 20)),
-    href: "/lab/4",
-  }
-];
-
 export default function Home() {
   const [clientRendered, setClientRendered] = useState(false);
   useEffect(() => {
     setClientRendered(true);
   }, []);
-
-  const isRecent = (date: Date) => {
-    if (!clientRendered) return false;
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    return date > sevenDaysAgo;
-  };
 
   return (
     <>
@@ -178,37 +138,6 @@ export default function Home() {
             </div>
         </div>
       </section>
-      
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="font-headline text-4xl font-bold">최근 업데이트</h2>
-            <Button variant="outline" asChild>
-              <Link href="#">View All Updates</Link>
-            </Button>
-          </div>
-          <Card>
-            <CardContent className="p-0">
-              <ul className="divide-y">
-                {recentUpdates.map((item, index) => (
-                  <li key={index} className="p-4 hover:bg-muted/50 transition-colors">
-                    <Link href={item.href} className="flex flex-wrap items-center justify-between gap-4">
-                      <div className="flex items-center gap-4">
-                        <div className="font-semibold">{item.lab}</div>
-                        <p className="text-muted-foreground">{item.update}</p>
-                      </div>
-                      <div className="text-sm text-muted-foreground flex items-center gap-2">
-                        {isRecent(item.date) && <Badge>New</Badge>}
-                        {clientRendered && <span>{item.date.toLocaleDateString()}</span>}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
 
       <section id="lab-info" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
@@ -239,5 +168,3 @@ export default function Home() {
     </>
   );
 }
-
-    

@@ -1896,7 +1896,7 @@ body {
   background-color: hsl(var(--muted));
   width: 2.5rem;
   height: 2.5rem;
-  transition: background-color .4s, opacity .4s;
+  transition: background-color .6s, opacity .6s;
 }
 
 .dark .square-item {

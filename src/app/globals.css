@@ -70,3 +70,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .char {
+    display: inline-block;
+    transform-origin: 50% 100%;
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  .char.animate {
+    animation: char-anime 0.5s cubic-bezier(0.3, 0, 0.2, 1.5) forwards;
+  }
+
+  @keyframes char-anime {
+    to {
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+  }
+}

@@ -9,6 +9,7 @@ import { ArrowRight, Star, Plus } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
+import SplitTextAnimation from "@/components/split-text-animation";
 
 const labFeatures = [
   {
@@ -133,7 +134,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
-            YeoBaek Web <br />
+            <SplitTextAnimation text="YeoBaek Web" />
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8">
             

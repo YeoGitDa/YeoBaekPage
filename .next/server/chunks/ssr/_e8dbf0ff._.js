@@ -166,6 +166,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const BackgroundSquares = ()=>{
     const [numCols, setNumCols] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
     const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const gridRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const calculateCols = ()=>{
             if (containerRef.current) {
@@ -181,28 +182,20 @@ const BackgroundSquares = ()=>{
         };
     }, []);
     const handleMouseMove = (e)=>{
-        const { clientX, clientY } = e;
-        const squares = document.querySelectorAll('.square-item');
-        squares.forEach((square)=>{
-            const { left, top, width, height } = square.getBoundingClientRect();
-            const centerX = left + width / 2;
-            const centerY = top + height / 2;
-            const distance = Math.sqrt(Math.pow(centerX - clientX, 2) + Math.pow(centerY - clientY, 2));
-            const maxDistance = 400; // Adjust this value to control the effect radius
-            if (distance < maxDistance) {
-                const opacity = 1 - distance / maxDistance;
-                square.style.opacity = `${opacity}`;
-                square.style.backgroundColor = 'hsl(var(--primary))';
-            } else {
-                square.style.opacity = `1`;
-                square.style.backgroundColor = '';
-            }
-        });
+        const target = e.target;
+        if (target.classList.contains('square-item')) {
+            // Reset all squares first
+            const squares = gridRef.current?.querySelectorAll('.square-item');
+            squares?.forEach((sq)=>{
+                sq.style.backgroundColor = '';
+            });
+            // Then color the target
+            target.style.backgroundColor = 'hsl(var(--primary))';
+        }
     };
     const handleMouseLeave = ()=>{
-        const squares = document.querySelectorAll('.square-item');
-        squares.forEach((square)=>{
-            square.style.opacity = '1';
+        const squares = gridRef.current?.querySelectorAll('.square-item');
+        squares?.forEach((square)=>{
             square.style.backgroundColor = '';
         });
     };
@@ -212,6 +205,7 @@ const BackgroundSquares = ()=>{
         onMouseMove: handleMouseMove,
         onMouseLeave: handleMouseLeave,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            ref: gridRef,
             className: "square-grid",
             style: {
                 "--num-cols": numCols
@@ -222,17 +216,17 @@ const BackgroundSquares = ()=>{
                     className: "square-item"
                 }, i, false, {
                     fileName: "[project]/src/components/background-squares.tsx",
-                    lineNumber: 69,
+                    lineNumber: 62,
                     columnNumber: 11
                 }, this))
         }, void 0, false, {
             fileName: "[project]/src/components/background-squares.tsx",
-            lineNumber: 64,
+            lineNumber: 56,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/background-squares.tsx",
-        lineNumber: 58,
+        lineNumber: 50,
         columnNumber: 5
     }, this);
 };

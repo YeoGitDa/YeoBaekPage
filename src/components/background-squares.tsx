@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 const BackgroundSquares = () => {
   const [numCols, setNumCols] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const calculateCols = () => {
@@ -26,30 +27,21 @@ const BackgroundSquares = () => {
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY } = e;
-    const squares = document.querySelectorAll('.square-item');
-    squares.forEach(square => {
-      const { left, top, width, height } = square.getBoundingClientRect();
-      const centerX = left + width / 2;
-      const centerY = top + height / 2;
-      const distance = Math.sqrt(Math.pow(centerX - clientX, 2) + Math.pow(centerY - clientY, 2));
-
-      const maxDistance = 400; // Adjust this value to control the effect radius
-      if (distance < maxDistance) {
-        const opacity = 1 - (distance / maxDistance);
-        (square as HTMLElement).style.opacity = `${opacity}`;
-        (square as HTMLElement).style.backgroundColor = 'hsl(var(--primary))';
-      } else {
-        (square as HTMLElement).style.opacity = `1`;
-         (square as HTMLElement).style.backgroundColor = '';
-      }
-    });
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('square-item')) {
+        // Reset all squares first
+        const squares = gridRef.current?.querySelectorAll('.square-item');
+        squares?.forEach(sq => {
+            (sq as HTMLElement).style.backgroundColor = '';
+        });
+        // Then color the target
+        target.style.backgroundColor = 'hsl(var(--primary))';
+    }
   };
 
   const handleMouseLeave = () => {
-     const squares = document.querySelectorAll('.square-item');
-     squares.forEach(square => {
-        (square as HTMLElement).style.opacity = '1';
+     const squares = gridRef.current?.querySelectorAll('.square-item');
+     squares?.forEach(square => {
         (square as HTMLElement).style.backgroundColor = '';
      });
   };
@@ -62,6 +54,7 @@ const BackgroundSquares = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div
+        ref={gridRef}
         className="square-grid"
         style={{ "--num-cols": numCols } as React.CSSProperties}
       >

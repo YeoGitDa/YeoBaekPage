@@ -167,10 +167,10 @@ const BackgroundSquares = ()=>{
     const [numCols, setNumCols] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
     const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const gridRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const squaresRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])([]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const calculateCols = ()=>{
             if (containerRef.current) {
-                // Assuming square size is roughly 40px + 1px gap
                 const num = Math.floor(window.innerWidth / 41);
                 setNumCols(num);
             }
@@ -182,45 +182,62 @@ const BackgroundSquares = ()=>{
         };
     }, []);
     const handleMouseMove = (e)=>{
-        const target = e.target;
-        if (target.classList.contains('square-item')) {
-            target.style.backgroundColor = 'hsl(var(--primary))';
-        }
+        const grid = gridRef.current;
+        if (!grid) return;
+        const rect = grid.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        squaresRef.current.forEach((square)=>{
+            if (!square) return;
+            const squareRect = square.getBoundingClientRect();
+            const squareX = squareRect.left - rect.left + squareRect.width / 2;
+            const squareY = squareRect.top - rect.top + squareRect.height / 2;
+            const distance = Math.sqrt(Math.pow(mouseX - squareX, 2) + Math.pow(mouseY - squareY, 2));
+            const maxDist = 200;
+            if (distance < maxDist) {
+                const opacity = 1 - distance / maxDist;
+                square.style.backgroundColor = `rgba(58, 140, 117, ${opacity * 0.5})`;
+            } else {
+                square.style.backgroundColor = '#111';
+            }
+        });
     };
-    const handleMouseLeave = (e)=>{
-        const target = e.target;
-        if (target.classList.contains('square-item')) {
-            target.style.backgroundColor = '';
-        }
+    const handleMouseLeave = ()=>{
+        squaresRef.current.forEach((square)=>{
+            if (square) {
+                square.style.backgroundColor = '#111';
+            }
+        });
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         ref: containerRef,
-        className: "absolute inset-0 h-full w-full overflow-hidden bg-transparent",
+        className: "absolute inset-0 h-full w-full overflow-hidden",
+        onMouseMove: handleMouseMove,
+        onMouseLeave: handleMouseLeave,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             ref: gridRef,
             className: "square-grid",
             style: {
                 "--num-cols": numCols
             },
-            onMouseMove: handleMouseMove,
-            onMouseLeave: handleMouseLeave,
             children: Array.from({
                 length: 40 * numCols
             }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    ref: (el)=>squaresRef.current[i] = el,
                     className: "square-item"
                 }, i, false, {
                     fileName: "[project]/src/components/background-squares.tsx",
-                    lineNumber: 56,
+                    lineNumber: 78,
                     columnNumber: 11
                 }, this))
         }, void 0, false, {
             fileName: "[project]/src/components/background-squares.tsx",
-            lineNumber: 48,
+            lineNumber: 72,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/background-squares.tsx",
-        lineNumber: 44,
+        lineNumber: 66,
         columnNumber: 5
     }, this);
 };

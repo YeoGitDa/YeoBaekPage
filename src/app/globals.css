@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,4 +89,23 @@
       transform: rotateX(0deg);
     }
   }
+
+  .square-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols, 20), 1fr);
+    gap: 1px;
+  }
+
+  .square-item {
+    width: 2rem;
+    height: 2rem;
+    background-color: hsl(var(--muted));
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .dark .square-item {
+     background-color: #111;
+  }
 }
+
+    

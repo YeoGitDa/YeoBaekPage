@@ -973,6 +973,10 @@ body {
   user-select: none;
 }
 
+.resize {
+  resize: both;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -1886,6 +1890,23 @@ body {
     opacity: 1;
     transform: rotateX(0);
   }
+}
+
+.square-grid {
+  grid-template-columns: repeat(var(--num-cols, 20), 1fr);
+  gap: 1px;
+  display: grid;
+}
+
+.square-item {
+  background-color: hsl(var(--muted));
+  width: 2rem;
+  height: 2rem;
+  transition: background-color .3s, opacity .3s;
+}
+
+.dark .square-item {
+  background-color: #111;
 }
 
 .file\:border-0::file-selector-button {

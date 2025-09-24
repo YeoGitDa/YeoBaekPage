@@ -10,6 +10,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import SplitTextAnimation from "@/components/split-text-animation";
+import BackgroundSquares from "@/components/background-squares";
 
 const labFeatures = [
   {
@@ -122,15 +123,9 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center">
+      <section className="relative h-[calc(80vh)] w-full flex items-center justify-center text-center overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full">
-          <Image
-            src="/1920x1080main_gradient_enhanced.png"
-            alt="bg"
-            fill
-            className="object-cover"
-            priority
-          />
+           <BackgroundSquares />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
@@ -244,3 +239,5 @@ export default function Home() {
     </>
   );
 }
+
+    

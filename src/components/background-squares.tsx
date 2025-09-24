@@ -32,7 +32,7 @@ const BackgroundSquares = () => {
       const { left, top, width, height } = square.getBoundingClientRect();
       const centerX = left + width / 2;
       const centerY = top + height / 2;
-      const distance = Math.sqrt(Math.pow(centerX - clientX, 2) + Math.pow(centerY - centerY, 2));
+      const distance = Math.sqrt(Math.pow(centerX - clientX, 2) + Math.pow(centerY - clientY, 2));
 
       const maxDistance = 200; // Adjust this value to control the effect radius
       if (distance < maxDistance) {
